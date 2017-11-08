@@ -6,6 +6,9 @@ use App\model\Product;
 use App\model\ProductOffer;
 use App\model\productExtra;
 use App\model\SubProduct;
+use App\model\Variation;
+use App\model\ProductVariation;
+use App\model\ProductBundle;
 
 /**
  * Created by PhpStorm.
@@ -24,6 +27,7 @@ class ProductController extends BaseController
 
         $productModel = new Product();
         $categoryModel = new Category();
+        $variationModel = new Variation();
         $data['products'] = $productModel->getProductsWithCategory();
         $joinTables = array(
             array(
@@ -48,6 +52,24 @@ class ProductController extends BaseController
         }
         //echo "<pre>"; print_r($data['products']); echo "</pre>";exit();
         $data['categories'] = $categoryModel->getWhere(['is_active' => 'true']);
+        $data['variations'] = $variationModel->getWhere(['is_active' => 'true']);
+        $subProductModel = new SubProduct();
+        $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
+
+        // Making single array for all products and subproducts
+        if ( $data['products'] || $data['sub_products'] ) {
+            if ( $data['products'] ) {
+                foreach ($data['products'] as $product) {
+                    $data['allProducts'][] = $product;
+                }
+            }
+            if ( $data['sub_products'] ) {
+                foreach ( $data['sub_products'] as $product ) {
+                    $product->product_id = $product->product_id.'_'.$product->sub_product_id;
+                    $data['allProducts'][] = $product;
+                }
+            }
+        }
         //var_dump($data['categories']);exit();
         $this->view('admin/products', $data);
     }
@@ -93,23 +115,29 @@ class ProductController extends BaseController
         }
 
         if (isset($_POST['product_id'])) {
+            // Update existing product
             $where = ['product_id' => $_POST['product_id']];
             $productModel->update($data, $where);
             $data['products'] = $productModel->getProductsWithCategory();
 
             $return = ['status'=> 200, 'message' => 'Successfully Updated!', 'products' => $data['products']];
         } else {
+            // Create new product
             $productModel->save($data);
             $data['productID'] = (int) $productModel->getLastInsertedId();
             // Insert offers data
             if ( isset($_POST['offers']) && !empty($_POST['offers']) ) {
                 $productOfferModel = new ProductOffer();
-                foreach ($_POST['offers'] as $key => $value) {
-                    $ProductOffer = [];
-                    $ProductOffer['product_id'] = $data['productID'];
-                    $ProductOffer['offered_product_id'] = $value;
-                    $ProductOffer['quantity'] = 3;
-                    $productOfferModel->save($ProductOffer);
+                $offersChecked = $_POST['offersChecked'];
+                $offersQuantity = $_POST['offersQuantity'];
+                foreach ($offersChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductOffer = [];
+                        $ProductOffer['product_id'] = $data['productID'];
+                        $ProductOffer['offered_product_id'] = $value;
+                        $ProductOffer['quantity'] = $offersQuantity[$key];
+                        $productOfferModel->save($ProductOffer);
+                    }
                 }
             }
 
@@ -119,8 +147,37 @@ class ProductController extends BaseController
                 foreach ($_POST['extras'] as $key => $value) {
                     $ProductOffer = [];
                     $ProductOffer['product_id'] = $data['productID'];
-                    $ProductOffer['extra_product_id'] = $value;
+                    $ProductOffer['extra_product_id'] = 2;
                     $productExtraModel->save($ProductOffer);
+                }
+            }
+
+            // Insert variations data
+            if ( isset($_POST['variation_id']) && !empty($_POST['variation_id']) ) {
+                $productVariationModel = new ProductVariation();
+                foreach ($_POST['extras'] as $value) {   
+                    $ProductVariations = [];
+                    $ProductVariations['product_id'] = $data['productID'];
+                    $ProductVariations['variation_id'] = $value;
+                    $productVariationModel->save($ProductVariations);
+                }
+            }
+
+            // Insert bundles data
+            if ( isset($_POST['bundles']) && !empty($_POST['bundles']) ) {
+                $productBundleModel     = new ProductBundle();
+                $bundlesChecked         = $_POST['bundlesChecked'];
+                $bundleOrderOfStep      = $_POST['bundleOrderOfStep'];
+                $bundleNumberOfEachStep = $_POST['bundleNumberOfEachStep'];
+                foreach ($bundlesChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductBundle = [];
+                        $ProductBundle['product_id'] = $data['productID'];
+                        $ProductBundle['bundle_product_id'] = $value;
+                        $ProductBundle['number_of_each_step'] = $bundleOrderOfStep[$key];
+                        $ProductBundle['order_of_step'] = $bundleOrderOfStep[$key];
+                        $productBundleModel->save($ProductBundle);
+                    }
                 }
             }
 
@@ -138,7 +195,7 @@ class ProductController extends BaseController
                 }
 
             }
-            $return = ['status'=> 200, 'message' => 'Successfully Created!', 'products' => $data['products']];
+            $return = ['status'=> 200, 'message' => 'Successfully Created', 'products' => $data['products']];
         }
 
         echo json_encode($return);
@@ -310,6 +367,19 @@ class ProductController extends BaseController
     /*######################################### Sub product section ###########################################*/
     /*#########################################################################################################*/
 
+    public function AllProductLists()
+    {
+        if (!$this->isAdminLoggedIn()) {
+            $this->redirect('admin/login');
+        }
+
+        $productModel = new Product();
+        $subProductModel = new SubProduct();
+        $categoryModel = new Category();
+        $data['products'] = $productModel->getProductsWithCategory();
+        $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
+        return $data;
+    }
     public function subProductLists()
     {
         if (!$this->isAdminLoggedIn()) {
@@ -322,7 +392,7 @@ class ProductController extends BaseController
         $data['products'] = $productModel->getProductsWithCategory();
         $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
 
-        //echo "<pre>"; print_r($data['sub_products']); echo "</pre>";exit();
+        // echo "<pre>"; print_r($data); echo "</pre>";exit();
         //var_dump($data['categories']);exit();
         $this->view('admin/sub_products', $data);
     }

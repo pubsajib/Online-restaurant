@@ -1,50 +1,5 @@
 <?php require_once "view/base/admin/header.php"; ?>
-    <style>
-        .w90{width: 90%;}
-        .pOfferQtn{width: 100px;}
-        .table-fixed {
-          width: 100%;
-          background-color: #f3f3f3;
-        }
-        .table-fixed tbody {
-          height: 200px;
-          overflow-y: auto;
-          width: 100%;
-        }
-        .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-          display: block;
-        }
-        .table-fixed tbody td {
-            float: left;
-            min-height: 52px;
-        }
-        .table-fixed thead tr th {
-          float: left;
-          background-color: #cf9b67;
-          border: 0;
-        }
-        .m-b-5{
-            margin-bottom: 5px;
-        }
-        .mw-300{
-            max-height: 300px;
-        }
-        .mw-350{
-            max-height: 350px;
-        }
-        .margin-right-15{
-            margin-right: 15px;
-        }
-        .addTYpe{
-            margin-top: 15px;
-        }
-        .addTYpe .bootstrap-select{
-            display: block !important;
-            width: 100% !important;
-        }
-    </style>
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<!-- <pre><?php //print_r($data['products']); ?></pre> -->
     <!-- fixed alert pop -->
     <div class="productAddAlert success div-alert-success hide">
         <p>
@@ -116,64 +71,45 @@
                                                             <textarea name="description" placeholder="Product Description" class="form-control" rows="3"></textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="row addTYpe">
-                                                        <div class="col-sm-12 col-xs-12">
-                                                            <div class="form-group">
-                                                                <label>Type</label>
-                                                                <select name="variation_id[]" class="selectpicker" multiple data-selected-text-format="count > 3">
-                                                                    <?php if ($variations){
-                                                                        foreach ($variations as $variation) {
-                                                                            echo '<option value="'. $variation->variation_id .'">'. $variation->variation_name .'</option>';
-                                                                        }
-                                                                    } ?>
-                                                                </select>
 
-                                                            </div> 
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="row margin-top-15 offer-table">
-                                                        <div class="col-sm-12 col-xs-12">
-                                                            <div class="row">
-                                                                <div class="col-sm-12 col-xs-12">
-                                                                    <h4 class="pull-left margin-right-15">Offer</h4>
-                                                                    <input name="isOfferEnable" value="1" id="toggle-event" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
-                                                                </div>
+                                                    <?php if ( $data['allProducts'] ): ?>
+                                                        <div class="row margin-top-15">
+                                                            <div class="col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label for="Offers">Offers</label>
+                                                                    <select id="Offers" name="offers[]" class="selectpicker form-control" multiple data-live-search="true">
+                                                                        <option data-tokens="Self">Self</option>
+                                                                        <?php foreach ($data['allProducts'] as $product) { 
+                                                                            echo '<option value="'. $product->product_id .'" data-tokens="first">'. $product->name .'</option>';
+                                                                        } ?>
+                                                                    </select>
+                                                                  </div>
                                                             </div>
-
-                                                            <div class="table-responsive mw-350">
-                                                                <table class="table table-hover table-striped table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="col-xs-1"> </th>
-                                                                            <th class="col-xs-8"><p class="m-b-5">Product</p></th>
-                                                                            <th class="col-xs-3"><p class="m-b-5">Quantity</p></th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php 
-                                                                        if ( $data['allProducts'] ) :
-                                                                            foreach ($data['allProducts'] as $product) : ?>
-                                                                                <tr>
-                                                                                    <td class="col-xs-1">
-                                                                                        <div class="checkbox no-margin offerHiddenWrapper">
-                                                                                            <label>
-                                                                                                <input name="offers[]" value="<?php echo $product->product_id; ?>" class="offer-status changeHidden" type="checkbox" disabled>
-                                                                                                <input class="offerHiddenValue" type="text" name="offersChecked[]">
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td class="col-xs-8"><p> <?php echo $product->name; ?> </p></td>
-                                                                                    <td class="col-xs-3">
-                                                                                        <input name="offersQuantity[]" type="number" value="1" class="form-control pOfferQtn" placeholder="Product Qunatity" min="1">
-                                                                                    </td>
-                                                                                </tr>
-                                                                            <?php endforeach;
-                                                                        endif; ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>    
                                                         </div>
+
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label for="Extra">Extra</label>
+                                                                    <select id="Extra" name="extras[]" class="selectpicker form-control" multiple data-live-search="true">
+                                                                        <option data-tokens="Self">Self</option>
+                                                                        <?php foreach ($data['allProducts'] as $product) {
+                                                                            echo '<option value="'. $product->product_id .'" data-tokens="first">'. $product->name .'</option>';
+                                                                        } ?>
+                                                                    </select>
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif ?>
+                                                    <div class="form-group">
+                                                        <label for="Variations">Variations</label>
+                                                        <select name="variation_id" class="form-control w100">
+                                                            <option value="">Select A Variation</option>
+                                                            <?php foreach ($variations as $variation) {?>
+                                                            <option value="<?= $variation->variation_id?>"><?= $variation->variation_name?></option>
+                                                            <?php }?>
+                                                            <!--<option>Category 2</option>-->
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -182,14 +118,41 @@
 
                                                         <div class="col-sm-12 col-xs-12">
                                                             <div class="row">
+                                                                <!--div class="col-sm-5 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <div class="form-group">
+                                                                            <select class="form-control productType">
+                                                                                <option>Select Product Type</option>
+                                                                                <option>Product Type 02</option>
+                                                                                <option>Product Type 03</option>
+                                                                                <option>Product Type 04</option>
+                                                                            <select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div-->
 
                                                                 <div class="col-sm-12 col-xs-12">
+                                                                    <!--div class="form-group">
+                                                                        <div class="form-group">
+                                                                            <input name="quantity" type="text" class="form-control" id="" placeholder="Product Quantity">
+                                                                        </div>
+                                                                    </div-->
                                                                     <div class="form-group">
                                                                         <div class="form-group">
                                                                             <input name="price" type="text" class="form-control" id="" placeholder="Product Price">
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
+                                                                <!--div class="col-sm-2 col-xs-12">
+                                                                    <button class="btn pull-right black-thin-border btn-success addProductBtn" type="button">
+                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                    </button>
+
+                                                                    <button class="btn pull-right black-thin-border btn-success deleteProductBtn">
+                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                    </button>
+                                                                </div-->
                                                             </div>
                                                         </div>
 
@@ -197,9 +160,10 @@
                                                             <div class="form-group">
                                                                 <select name="category_id" class="form-control w100">
                                                                     <option value="">Select A Category</option>
-                                                                    <?php foreach ($categories as $category) { ?>
+                                                                    <?php foreach ($categories as $category) {?>
                                                                     <option value="<?= $category->category_id?>"><?= $category->category_name?></option>
-                                                                    <?php } ?>
+                                                                    <?php }?>
+                                                                    <!--<option>Category 2</option>-->
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -226,96 +190,40 @@
                                                                         </span>
                                                                 </label>
                                                             </div>
+                                                            <!--span class="help-block">
+                                                                Try selecting one or more files and watch the feedback
+                                                            </span-->
                                                         </div>
-                                                    </div>
-                                                    <div class="row margin-top-20 extra-table">
-                                                        <div class="col-sm-12 col-xs-12">
 
-                                                            <div class="row">
-                                                                <div class="col-sm-12 col-xs-12">
-                                                                    <h4 class="pull-left margin-right-15">Extra</h4>
-                                                                    <input name="isExtraEnable" value="1" id="toggle-extra" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+                                                    </div>
+                                                </div>
+
+                                                <!--div class="col-sm-12 col-xs-12">
+                                                    <div class="dynamicPanels margin-top-15">
+                                                        <div class="row">
+                                                            <div class="col-sm-6 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <div class="form-group">
+                                                                        <select class="form-control productType">
+                                                                            <option>Select Product Type</option>
+                                                                            <option>Product Type 02</option>
+                                                                            <option>Product Type 03</option>
+                                                                            <option>Product Type 04</option>
+                                                                        <select>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="table-responsive mw-300">
-                                                                <table class="table table-hover table-striped table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="col-xs-1">
-                                                                                
-                                                                            </th>
-                                                                            <th class="col-xs-11"><p class="m-b-5">Product</p></th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php if ( $data['allProducts'] ) :
-                                                                            foreach ($data['allProducts'] as $product) : ?>
-                                                                                <tr>
-                                                                                    <td class="col-xs-1">
-                                                                                        <div class="checkbox no-margin">
-                                                                                            <label>
-                                                                                              <input name="extras[]" value="<?php echo $product->product_id; ?>" class="extra-status" type="checkbox" disabled>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td class="col-xs-11"><p> <?php echo $product->name; ?> </p></td>
-                                                                                </tr>
-                                                                            <?php endforeach;
-                                                                        endif; ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>    
+                                                            <div class="col-sm-6 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <div class="form-group">
+                                                                        <input name="price" type="text" class="form-control" id="" placeholder="Product Price">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="col-sm-12 col-xs-12">
-                                                    <div class="row margin-top-15">
-                                                        <div class="col-sm-12 col-xs-12">
-
-                                                            <label for="Offers">Bundle</label>
-
-                                                            <div class="table-responsive mw-300">
-                                                                <table class="table table-hover table-striped table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="col-xs-1">
-                                                                                
-                                                                            </th>
-                                                                            <th class="col-xs-5"><p class="m-b-5">Product</p></th>
-                                                                            <th class="col-xs-3"><p class="m-b-5">Number of each step</p></th>
-                                                                            <th class="col-xs-3"><p class="m-b-5">Order of step</p></th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php if ( $data['allProducts'] ) :
-                                                                            foreach ($data['allProducts'] as $product) : ?>
-                                                                                <tr>
-                                                                                    <td class="col-xs-1">
-                                                                                        <div class="checkbox no-margin bundleChangeHiddenWrapper">
-                                                                                            <label>
-                                                                                                <input name="bundles[]" value="<?php echo $product->product_id; ?>" class="offer-status bundleChangeHidden" type="checkbox">
-                                                                                                <input class="bundleHiddenValue" type="text" name="bundlesChecked[]">
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </td>
-                                                                                    <td class="col-xs-5"><p> <?php echo $product->name; ?> </p></td>
-                                                                                    <td class="col-xs-3">
-                                                                                        <input name="bundleNumberOfEachStep[]" type="number" value="1" class="form-control pOfferQtn" placeholder="Product Qunatity" min="1">
-                                                                                    </td>
-                                                                                    <td class="col-xs-3">
-                                                                                        <input name="bundleOrderOfStep[]" type="number" value="1" class="form-control pOfferQtn" placeholder="Product Qunatity" min="1">
-                                                                                    </td>
-                                                                                </tr>
-                                                                            <?php endforeach;
-                                                                        endif; ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>    
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </div-->
 
                                                 <div class="col-sm-12 col-xs-12">
                                                     <button class="btn btn-success pull-right  margin-top-10 btn_create_product">submit</button>
@@ -745,46 +653,6 @@
 
 
     <script>
-        //Enable/disable offer
-        $(function() {
-
-            $(document).on( 'change', '.changeHidden', function(event) {
-                if($(this).is(':checked')){
-                    $(this).parents('.offerHiddenWrapper').find('.offerHiddenValue').val($(this).val());
-                } else {
-                    $(this).parents('.offerHiddenWrapper').find('.offerHiddenValue').val(0);
-                }
-            });
-
-            $(document).on( 'change', '.bundleChangeHidden', function(event) {
-                if($(this).is(':checked')){
-                    $(this).parents('.bundleChangeHiddenWrapper').find('.bundleHiddenValue').val($(this).val());
-                } else {
-                    $(this).parents('.bundleChangeHiddenWrapper').find('.bundleHiddenValue').val(0);
-                }
-            });
-
-            $('#toggle-event').change(function() {
-                if($(this).is(':checked')){
-                    $(this).parents('.offer-table').find('.offer-status').removeAttr('disabled');
-                }
-                else{
-                    $(this).parents('.offer-table').find('.offer-status').attr('disabled','disabled');
-                }
-            });
-        });
-
-        //Enable/disable extra
-        $(function() {
-            $('#toggle-extra').change(function() {
-                if($(this).is(':checked')){
-                    $(this).parents('.extra-table').find('.extra-status').removeAttr('disabled');
-                }
-                else{
-                    $(this).parents('.extra-table').find('.extra-status').attr('disabled','disabled');
-                }
-            });
-        });
         // Dynamically add panel
         $(document).on("click",".addProductBtn",function(){
             var dynamic_content='<div class="row">';

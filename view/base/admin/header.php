@@ -142,15 +142,10 @@
                         <li>
                             <a href="javascript:;"><i class="fa fa-cutlery fa-fw"></i> Food Menu<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="<?= BASE_URL ?>/admin/category">Categories</a>
-                                </li>
-                                <li>
-                                    <a href="<?= BASE_URL ?>/admin/products">Items</a>
-                                </li>
-                                <li>
-                                    <a href="<?= BASE_URL ?>/admin/sub_products">Sub Items</a>
-                                </li>
+                                <li> <a href="<?= BASE_URL ?>/admin/category">Categories</a> </li>
+                                <li> <a href="<?= BASE_URL ?>/admin/products">Items</a> </li> 
+                                <li> <a href="<?= BASE_URL ?>/admin/sub_products">Sub Items</a> </li>
+                                <li> <a href="<?= BASE_URL ?>/admin/variation">Variations</a> </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

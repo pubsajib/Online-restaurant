@@ -5,7 +5,6 @@
 		<div class="processing">waiting for confirmation</div>
 	</div>
 	<!-- End Loader Bloc -->
-
     <!-- page topper without breadcrumb-->
     <section class="page-topper">
     </section>

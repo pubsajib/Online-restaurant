@@ -108,6 +108,7 @@ $route = array(
         'subProductLists',
         'get',
     ),
+    
     'admin/create-sub_products' => array(
         'ProductController',
         'createSubProduct',
@@ -527,6 +528,27 @@ $route = array(
         'CustomerController',
         'commonErrorMessage',
         'get',
+    ),
+    //variation product
+    'admin/variation' => array(
+        'VariationController',
+        'lists',
+        'get',
+    ),
+    'admin/create-variation' => array(
+        'VariationController',
+        'createvariation',
+        'post',
+    ),
+    'admin/variation-details' => array(
+        'VariationController',
+        'variationDetails',
+        'get',
+    ),
+    'admin/variation-delete' => array(
+        'VariationController',
+        'variationDelete',
+        'post',
     ),
 
 );
