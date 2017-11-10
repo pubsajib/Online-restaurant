@@ -1,15 +1,4 @@
 <?php
-namespace App\controller;
-use App\model\Category;
-use App\model\Offer;
-use App\model\Product;
-use App\model\ProductOffer;
-use App\model\productExtra;
-use App\model\SubProduct;
-use App\model\Variation;
-use App\model\ProductVariation;
-use App\model\ProductBundle;
-
 /**
  * Created by PhpStorm.
  * User: b16030315
@@ -17,43 +6,49 @@ use App\model\ProductBundle;
  * Time: 6:28 PM
  */
 
+namespace App\controller;
+use App\model\Category;
+use App\model\Offer;
+use App\model\Product;
+use App\model\ProductOffer;
+use App\model\ProductExtra;
+use App\model\SubProduct;
+use App\model\Variation;
+use App\model\ProductVariation;
+use App\model\ProductBundle;
+
 class ProductController extends BaseController
 {
     public function lists()
     {
-        if (!$this->isAdminLoggedIn()) {
-            $this->redirect('admin/login');
-        }
+        if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
 
-        $productModel = new Product();
-        $categoryModel = new Category();
+        $offerModel     = new Offer();
+        $productModel   = new Product();
+        $categoryModel  = new Category();
         $variationModel = new Variation();
+        $subProductModel = new SubProduct();
+
         $data['products'] = $productModel->getProductsWithCategory();
-        $joinTables = array(
-            array(
-                'tableName' => 'products',
-                'constraintKey' => 'product_id',
-            ),
-        );
-        $offerModel = new Offer();
+        $joinTables = [['tableName' => 'products', 'constraintKey' => 'product_id']];
         $offers = $offerModel->getRaw('select *, offer.is_active as offer_active from offer join products on products.product_id = offer.product_id where products.is_active != "Delete"');
         $data['offers'] = $offerModel->getRaw('select *, offer.is_active as offer_active from offer join products on products.product_id = offer.product_id where products.is_active != "Delete" and offer.is_active = "Active"');
-        foreach ($data['products'] as $product) {
-            $product->offer = null;
-            if (!empty($offers)) {
-                foreach ($offers as $offer) {
-                    if ($product->product_id == $offer->product_id) {
-                        $product->offer = $offer;
-                        //echo "<pre>"; print_r($offer); echo "</pre>";exit();
+        if ( $data['products']  ) {
+            foreach ($data['products'] as $product) {
+                $product->offer = null;
+                if (!empty($offers)) {
+                    foreach ($offers as $offer) {
+                        if ($product->product_id == $offer->product_id) {
+                            $product->offer = $offer;
+                            //echo "<pre>"; print_r($offer); echo "</pre>";exit();
+                        }
                     }
                 }
             }
-
         }
         //echo "<pre>"; print_r($data['products']); echo "</pre>";exit();
         $data['categories'] = $categoryModel->getWhere(['is_active' => 'true']);
         $data['variations'] = $variationModel->getWhere(['is_active' => 'true']);
-        $subProductModel = new SubProduct();
         $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
 
         // Making single array for all products and subproducts
@@ -70,7 +65,8 @@ class ProductController extends BaseController
                 }
             }
         }
-        //var_dump($data['categories']);exit();
+        $data['extraProducts'] = $this->AllExtraProductLists();
+        // echo "<pre>"; print_r($data['extraProducts']); echo "</pre>"; exit();
         $this->view('admin/products', $data);
     }
 
@@ -88,7 +84,7 @@ class ProductController extends BaseController
         return;
     }
 
-    public function createProduct(){
+    public function createProduct() {
         $productModel = new Product();
         $date = new \DateTime();
         $data = array(
@@ -101,6 +97,7 @@ class ProductController extends BaseController
             'is_active' => true/*$_POST['is_active']*/,
             'created_at' => $date->format('Y-m-d h:i:s'),
         );
+        if ( isset($_POST['isExtra']) && !empty($_POST['isExtra']) ) { $data['is_extra'] = 'True'; }
         if (!empty($_FILES['image_name']['name'])) {
             $image = $_FILES['image_name'];
             $targetDir = BASE_DIR.'/assets/img/products/';
@@ -143,19 +140,19 @@ class ProductController extends BaseController
 
             // Insert extra data
             if ( isset($_POST['extras']) && !empty($_POST['extras']) ) {
-                $productExtraModel = new productExtra();
-                foreach ($_POST['extras'] as $key => $value) {
+                $productExtraModel = new ProductExtra();
+                foreach ($_POST['extras'] as $value) {
                     $ProductOffer = [];
                     $ProductOffer['product_id'] = $data['productID'];
-                    $ProductOffer['extra_product_id'] = 2;
+                    $ProductOffer['extra_product_id'] = $value;
                     $productExtraModel->save($ProductOffer);
                 }
             }
 
             // Insert variations data
-            if ( isset($_POST['variation_id']) && !empty($_POST['variation_id']) ) {
+            if ( isset($_POST['variations']) && !empty($_POST['variations']) ) {
                 $productVariationModel = new ProductVariation();
-                foreach ($_POST['extras'] as $value) {   
+                foreach ($_POST['variations'] as $value) {   
                     $ProductVariations = [];
                     $ProductVariations['product_id'] = $data['productID'];
                     $ProductVariations['variation_id'] = $value;
@@ -190,18 +187,14 @@ class ProductController extends BaseController
                 foreach ($offers as $offer) {
                     if ($product->product_id == $offer->product_id) {
                         $product->offer = $offer;
-                        //echo "<pre>"; print_r($offer); echo "</pre>";exit();
                     }
                 }
-
             }
             $return = ['status'=> 200, 'message' => 'Successfully Created', 'products' => $data['products']];
         }
-
         echo json_encode($return);
         exit();
     }
-
 
     public function productDelete()
     {
@@ -367,37 +360,40 @@ class ProductController extends BaseController
     /*######################################### Sub product section ###########################################*/
     /*#########################################################################################################*/
 
-    public function AllProductLists()
-    {
-        if (!$this->isAdminLoggedIn()) {
-            $this->redirect('admin/login');
-        }
-
-        $productModel = new Product();
-        $subProductModel = new SubProduct();
-        $categoryModel = new Category();
-        $data['products'] = $productModel->getProductsWithCategory();
-        $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
-        return $data;
-    }
     public function subProductLists()
     {
-        if (!$this->isAdminLoggedIn()) {
-            $this->redirect('admin/login');
-        }
+        if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
 
         $productModel = new Product();
         $subProductModel = new SubProduct();
         $categoryModel = new Category();
+        $variationModel = new Variation();
+        $productVariationModel  = new ProductVariation();
+
         $data['products'] = $productModel->getProductsWithCategory();
         $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
+        $data['variations'] = $variationModel->getWhere(['is_active' => 'true']);
+        
+        $joinTables = [['tableName' => 'variations', 'constraintKey' => 'variation_id']];
+        foreach ($data['sub_products'] as $subProduct) {
+            $where = ['product_id'=>$subProduct->sub_product_id];
+            $variations = $productVariationModel->getJoinedData($joinTables, $where);
+            $variationNames = '';
+            $variationIds = [];
+            if ( $variations ) {
+                foreach ($variations as $variation) {
+                    $variationIds[] = $variation->variation_id;
+                    $variationNames .= $variation->variation_name .', ';
+                }
+            }
+            $subProduct->variations = $variationIds;
+            $subProduct->variationNames = rtrim( $variationNames, ', ');
+        }
 
-        // echo "<pre>"; print_r($data); echo "</pre>";exit();
-        //var_dump($data['categories']);exit();
         $this->view('admin/sub_products', $data);
     }
 
-    public function subProductDetails(){
+    public function subProductDetails() {
         $productId = $_GET['product_id'];
         //echo $productId; exit();
         $subProductModel = new SubProduct();
@@ -412,8 +408,11 @@ class ProductController extends BaseController
 
     public function createSubProduct()
     {
-        $subProductModel = new SubProduct();
-        $date = new \DateTime();
+        $subProductModel        = new SubProduct();
+        $variationModel         = new Variation();
+        $productVariationModel  = new ProductVariation();
+        $date                   = new \DateTime();
+
         $data = array(
             'product_id' => $_POST['product_id'],
             'name' => $_POST['name'],
@@ -423,15 +422,62 @@ class ProductController extends BaseController
             'display_order' => $_POST['display_order'],
             'created_at' => $date->format('Y-m-d h:i:s'),
         );
-
+        if ( isset($_POST['isExtra']) && !empty($_POST['isExtra']) ) { $data['is_extra'] = 'True'; }
         if (isset($_POST['sub_product_id'])) {
+            $subProductId = $_POST['sub_product_id'];
             $where = ['sub_product_id' => $_POST['sub_product_id']];
             $subProductModel->update($data, $where);
-            $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
 
+            // Update variations data
+            if ( isset($_POST['variations']) ) {
+                $newNariations = $_POST['variations'];
+                $where = ['product_id'=>$subProductId];
+                $productVariationModel->deleteData($where);
+                
+                // if ( !empty($newNariations) ) {
+                //     foreach ($newNariations as $value) {   
+                //         $ProductVariations = [];
+                //         $ProductVariations['product_id'] = $data['subProductID'];
+                //         $ProductVariations['variation_id'] = $value;
+                //         $productVariationModel->update($ProductVariations, $where);
+                //     }
+                // }
+            }
+
+            // Return data for front end
+            $data = [];
+            $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
+            $data['variations'] = $variationModel->getWhere(['is_active' => 'true']);
+            $joinTables = [['tableName' => 'variations', 'constraintKey' => 'variation_id']];
+            foreach ($data['sub_products'] as $subProduct) {
+                $where = ['product_id'=>$subProduct->sub_product_id];
+                $variations = $productVariationModel->getJoinedData($joinTables, $where);
+                $variationNames = '';
+                $variationIds = [];
+                if ( $variations ) {
+                    foreach ($variations as $variation) {
+                        $variationIds[] = $variation->variation_id;
+                        $variationNames .= $variation->variation_name .', ';
+                    }
+                }
+                $subProduct->variations = $variationIds;
+                $subProduct->variationNames = rtrim( $variationNames, ', ');
+            }
             $return = ['status'=> 200, 'message' => 'Successfully Updated!', 'products' => $data['sub_products']];
         } else {
             $subProductModel->save($data);
+            $data['subProductID'] = (int) $subProductModel->getLastInsertedId();
+
+            // Insert variations data
+            if ( isset($_POST['variations']) && !empty($_POST['variations']) ) {
+                $productVariationModel = new ProductVariation();
+                foreach ($_POST['variations'] as $value) {   
+                    $ProductVariations = [];
+                    $ProductVariations['product_id'] = $data['subProductID'];
+                    $ProductVariations['variation_id'] = $value;
+                    $productVariationModel->save($ProductVariations);
+                }
+            }
 
             $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
             $return = ['status'=> 200, 'message' => 'Successfully Created!', 'products' => $data['sub_products']];
@@ -446,7 +492,7 @@ class ProductController extends BaseController
         $subProductModel = new SubProduct();
         $where = ['sub_product_id' => $_POST['product_id']];
         $sub_products = '';
-        //var_dump($where);exit();
+        // var_dump($where);exit();
         $returnedData = $subProductModel->delete($where);
         if ($returnedData['status'] == 200) {
             $sub_products = $subProductModel->getSubProductsWithProduct();
@@ -472,84 +518,36 @@ class ProductController extends BaseController
             // echo json_encode($product);
             $totalPrice = 0;
             $html = '';
-            $html .= '
-            <form action="">
-                <div class="extra-table"><ul>';
+            $html .= '<div class="all-offer-list allOfferList">
+                        <div class="row offer-list-title">
+                            <div class="col-sm-6">
+                                <p><strong>Select option</strong></p>
+                            </div>    
+                            <div class="col-sm-6">
+                                <p></p>
+                            </div>    
+                        </div>
+                        
+                        <div class="row">
+                            <div class="">
+                                <ul class="offer-list">';
             foreach ($offers as $key => $offer) {
                 $data = ['product_id' => $offer->offered_product_id];
                 $product = $productModel->getWhere($data, [], 'single');
                 $totalPrice += $product->price;
-                // $html .= '<li>product ID: '. $offer->offered_product_id .'</li>';
-                $html .= '<li>
-                    <div class="row no-margin">
-
-                    <div class="col-sm-6">
-                    <div class="itme-td">'. $product->name .'</div>
-                    </div>
-
-                    <div class="col-sm-5 text-right">
-                    <div class="extra-td">
-                    <span class="extra-price">'. $product->price .'</span>
-                    </div>
-                    </div>
-
-                    <div class="col-sm-1">
-                    <div class="extra-td text-right">
-                    <div class="btn-group">
-                    <label class="btn offer-add" type="button" data-toggle="collapse" data-target="#product'. $product->product_id .'">
-                    <i class="fa fa-plus"></i>
-                    </label>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-                    <div id="product'. $product->product_id .'" class="extra-collespe-panel panel-collapse collapse">
-                    <div class="panel-body">
-                    <div class="row no-margin">
-                    <div class="col-sm-1">
-                    <a class="common-close-btn" href="javascript:;"><i class="fa fa-close"></i></a>
-                    </div>
-                    <div class="col-sm-1">
-                    <div class="hobtr add-dlt-col">
-                    <div class="cross-td custom-spinner offer-spiner">
-                    <div class="input-group spinner l10">
-                    <input type="hidden" class="product_price" name="product_price" value="'. $product->price .'">
-                    <button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button>
-                    <input class="form-control increse-val" value="1" readonly="" type="text">
-                    <button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button>
-                    </div><span class="qnt-idn">1</span>x
-                    </div>
-                    </div>
-                    </div>
-
-                    <div class="col-sm-10 text-right">
-                    <div class="extra-td lh-43">
-                    <span class="extra-price">'. $product->price .'</span>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </li>';
+                $html .= '<li class="offers add" id="'.$product->product_id.'" class="offeredProductContainer"><div class="row">';
+                $html .= '<div class="col-sm-7 col-xs-12"> <p><strong>'. $product->name .'</strong></p> </div>';
+                // $html .= '<div class="col-sm-5 col-xs-12"> <p class="offer-list-des">Ignored by shahin vai 21071108.</p> </div>';
+                $html .= '</div> </li>';
             }
 
             $html .= '</ul>
-                </div>
-
-                <div class="clearfix"></div>
-                <div class="ui-order-description order-description" style="">
-                <div class="row">
-                <div class="col-md-4 col-xs-4">
-                <p>Total: </p>
-                </div>
-                <div class="col-md-8 col-xs-8 text-right ">£<span id="extra-order-total-amount" class="">'. $totalPrice. '</span>
-                </div>
-                </div>
-                </div>
-                </form>';
+                                </div>
+                            </div>
+                        </div>';
             //include 'http://localhost/online_restaurant/view/customer/productContentModal.php';
             echo $html;
+            // echo json_encode($offers[0]);
         } else{
             echo 404;
         }
@@ -559,5 +557,34 @@ class ProductController extends BaseController
     {
         echo "productExtras";
         exit();
+    }
+    public function AllExtraProductLists()
+    {
+        if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
+        $data[] = [];
+        $productModel = new Product();
+        $subProductModel = new SubProduct();
+        $categoryModel = new Category();
+        $data = $productModel->getWhere(['is_extra'=>'True']);
+        $sub_products = $subProductModel->getWhere(['is_extra'=>'True']);
+        if ( $sub_products ) {
+            foreach ( $sub_products as $product ) {
+                $product->product_id = $product->product_id.'_'.$product->sub_product_id;
+                $data[] = $product;
+            }
+        }
+        // echo "<pre>"; print_r($data); echo "</pre>"; exit();
+        return $data;
+    }
+    public function AllProductLists2()
+    {
+        if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
+
+        $productModel = new Product();
+        $subProductModel = new SubProduct();
+        $categoryModel = new Category();
+        $data['products'] = $productModel->getProductsWithCategory();
+        $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
+        return $data;
     }
 }

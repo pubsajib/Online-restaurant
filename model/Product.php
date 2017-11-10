@@ -14,14 +14,12 @@ class Product extends DB
     public function getAll()
     {
         $data = $this->all($this->tableName);
-
         return $data;
     }
 
     public function getWhere($data, $select = array(), $tag = "")
     {
         $returnedData = $this->getValuesAndWhere($this->tableName, $data, $select, $tag);
-
         return $returnedData;
     }
 
@@ -132,9 +130,8 @@ class Product extends DB
      */
     public function getLastInsertedId()
     {
-        $sql = "SELECT product_id FROM `products` ORDER BY product_id DESC LIMIT 1";
+        $sql = "SELECT product_id FROM `". $this->tableName ."` ORDER BY product_id DESC LIMIT 1";
         $data = $this->select($sql);
-
         return $data[0]->product_id;
     }
 }

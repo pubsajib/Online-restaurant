@@ -407,3 +407,9 @@ textarea {
 body.modal-open {
     overflow: hidden;
 }
+.select-type .bootstrap-select{
+    width: 100% !important;
+}
+.sub-m-t-15{
+margin-top: 15px;
+}

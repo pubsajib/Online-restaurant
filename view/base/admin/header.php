@@ -145,7 +145,7 @@
                                 <li> <a href="<?= BASE_URL ?>/admin/category">Categories</a> </li>
                                 <li> <a href="<?= BASE_URL ?>/admin/products">Items</a> </li> 
                                 <li> <a href="<?= BASE_URL ?>/admin/sub_products">Sub Items</a> </li>
-                                <li> <a href="<?= BASE_URL ?>/admin/variation">Variations</a> </li>
+                                <li> <a href="<?= BASE_URL ?>/admin/variation">Types</a> </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

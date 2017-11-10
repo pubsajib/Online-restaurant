@@ -7,21 +7,19 @@ namespace App\model;
  * Date: 1/6/17
  * Time: 5:31 PM
  */
-class productExtra extends DB
+class ProductExtra extends DB
 {
     public $tableName = 'product_extra';
 
     public function getAll()
     {
         $data = $this->all($this->tableName);
-
         return $data;
     }
 
     public function getWhere($data, $select = array(), $tag = "")
     {
         $returnedData = $this->getValuesAndWhere($this->tableName, $data, $select, $tag);
-
         return $returnedData;
     }
 
@@ -115,9 +113,9 @@ class productExtra extends DB
         return $data;
     }
 
-    public function getProductRealtedExtra($productID)
+    public function getProductRealtedOffers($productID)
     {
-        $sql = "select *  from product_extra where product_id = $productID and is_active = 'Active' order by extra_id asc;";
+        $sql = "select *  from product_offer where product_id = $productID and is_active = 'Active' order by offer_id asc;";
         $data = $this->select($sql);
 
         return $data;

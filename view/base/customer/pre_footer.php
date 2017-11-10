@@ -85,7 +85,7 @@
         <p>
 
             <span>Powered by :</span>
-            <span><a href="http://www.atitonline.co.uk/" target="_blank"><img class="copyright-logo" src="/assets/customer/img/footer-logo.png">| AT IT (UK) LTD</a></span>
+            <span><a href="http://www.atitonline.co.uk/" target="_blank"><img class="copyright-logo" src="<?php echo BASE_URL?>/assets/customer/img/footer-logo.png">| AT IT (UK) LTD</a></span>
 
         </p>
         <a class="footer_navigation" href="">Top</a>

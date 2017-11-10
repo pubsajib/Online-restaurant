@@ -154,11 +154,15 @@ $(document).on("click",".cust-plus-decrement",function(){
 
 /*Offer increment/decrement*/
 
+$(document).on('click','.offer-add',function(){
+	$(this).parents('li').find('.extra-collespe-panel').toggleClass('in');
+});
+
 $(document).on("click",".offer-plus-increment",function(){
 	var itemNumber=$(this).parents(".offer-spiner").find(".increse-val").val();
-	var itemVal=$(this).parents(".extra-collespe-panel").find(".product_price").val();
+	var itemVal=$(this).parents(".spinner").find(".product_price").val();
 	var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
-	var extraPrice=$(this).parents("#ExtraCart").find("#extra-order-total-amount").html();
+	var extraPrice=$(this).parents(".modal-content").find("#extra-order-total-amount").html();
 
 	itemNumber=parseInt(itemNumber);
 	itemVal=parseInt(itemVal);
@@ -171,7 +175,7 @@ $(document).on("click",".offer-plus-increment",function(){
 	$(this).parents(".hobtr").find(".qnt-idn").html(itemNumber);
 	$(this).parents(".hobtr").find(".increse-val").val(itemNumber);
 	$(this).parents(".row").find(".extra-price").html(itemFinalVal);
-	$(this).parents("#ExtraCart").find("#extra-order-total-amount").html(extraPrice);
+	$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice);
 });
 
 $(document).on('click','.SkipExtra',function(){
@@ -182,9 +186,9 @@ $(document).on('click','.SkipExtra',function(){
 
 $(document).on("click",".offer-plus-decrement",function(){
 	var itemNumber=$(this).parents(".offer-spiner").find(".increse-val").val();
-	var itemVal=$(this).parents(".extra-collespe-panel").find(".product_price").val();
+	var itemVal=$(this).parents(".spinner").find(".product_price").val();
 	var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
-	var extraPrice=$(this).parents("#ExtraCart").find("#extra-order-total-amount").html();
+	var extraPrice=$(this).parents(".modal-content").find("#extra-order-total-amount").html();
 
 	itemNumber=parseInt(itemNumber);
 	itemVal=parseInt(itemVal);
@@ -199,7 +203,7 @@ $(document).on("click",".offer-plus-decrement",function(){
 		$(this).parents(".hobtr").find(".qnt-idn").html(itemNumber);
 		$(this).parents(".hobtr").find(".increse-val").val(itemNumber);
 		$(this).parents(".row").find(".extra-price").html(itemFinalVal);
-		$(this).parents("#ExtraCart").find("#extra-order-total-amount").html(extraPrice);
+		$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice);
 	}
 	else{
 		$(this).parents(".hobtr").find(".qnt-idn").html(1);
@@ -207,16 +211,31 @@ $(document).on("click",".offer-plus-decrement",function(){
 });
 
 $(document).on('click','.extra-rmv',function(){
-	$(this).parents('.extra-collespe-panel').remove();
+	$(this).parents('.extra-collespe-panel').removeClass('in');
 });
+
+$(document).on('click','#edit-extra',function(){
+	$('#addExtra').modal('show');
+	$('body').css('paddingRight','0');
+});	
 
 $(document).on('click','#SkipOffers, .offer-close',function(){
 	$('#addExtra').modal('show');
 	$('body').css('paddingRight','0');
 });
 
+$(document).on('click','.addExtraCart',function(){
+	$('#offerList').modal('show');
+	$('body').css('paddingRight','0');
+});
 
 $('#addExtra').on('hidden.bs.modal', function (){
-   	// do something ...
    	$('body').css('paddingRight','0');
  });
+
+//ads offer click to select
+// $(document).on('click','.offer-list>li',function(){
+// 	$(this).parent('.offer-list').children('li').removeClass('active');
+// 	$(this).addClass('active');
+// });
+//selected offer list

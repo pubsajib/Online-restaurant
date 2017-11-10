@@ -1,4 +1,6 @@
-<?php require_once "view/base/admin/header.php"?>
+<?php require_once "view/base/admin/header.php"; ?>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- fixed alert pop -->
     <div class="productAddAlert success div-alert-success hide">
         <p>
@@ -36,20 +38,8 @@
                                 <div class="panel panel-default dynamicContentPanel">
                                     <div class="panel-heading">
                                         <div class="row">
-                                            <div class="col-sm-2">
-                                                <h4>Add Product</h4>
-                                            </div>
-
-                                            <!--div class="col-sm-4">
-                                                <div class="checkbox pull-left">
-                                                    <label>
-                                                      <input type="checkbox" class="singleItemCheck"> Single Product
-                                                    </label>
-                                                </div>
-                                            </div-->
-
-                                            <div class="col-sm-6">
-                                            </div>
+                                            <div class="col-sm-2"> <h4>Add Product</h4> </div>
+                                            <div class="col-sm-6"> </div>
                                         </div>
                                     </div>
 
@@ -70,12 +60,25 @@
                                                             <div class="form-group">
                                                                 <select name="product_id" class="form-control w100">
                                                                     <option value="">Select A Product</option>
-                                                                    <?php foreach ($products as $product) {?>
-                                                                        <option value="<?= $product->product_id?>"><?= $product->name?></option>
-                                                                    <?php }?>
-                                                                    <!--<option>Category 2</option>-->
+                                                                    <?php foreach ($products as $product) { ?>
+                                                                        <option value="<?= $product->product_id?>"><?= $product->name ?></option>
+                                                                    <?php } ?>
                                                                 </select>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row addType">
+                                                        <div class="col-sm-12 col-xs-12">
+                                                            <div class="form-group select-type">
+                                                                <!--label>Type</label-->
+                                                                <select name="variations[]" class="selectpicker" multiple data-selected-text-format="count > 3" title="select types" style="width: 100%; margin: 0">
+                                                                    <?php if ($variations){
+                                                                        foreach ($variations as $variation) {
+                                                                            echo '<option value="'. $variation->variation_id .'">'. $variation->variation_name .'</option>';
+                                                                        }
+                                                                    } ?>
+                                                                </select>
+                                                            </div> 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -96,14 +99,16 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-sm-12 col-xs-12">
-
-                                                        </div>
+                                                        <div class="col-sm-12 col-xs-12"> </div>
 
                                                         <div class="col-sm-12 col-xs-12">
                                                             <div class="form-group">
                                                                 <input name="display_order" type="number" class="form-control" id="display_order" placeholder="Display Order">
                                                             </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-xs-12">
+                                                            <h4 class="pull-left margin-right-15">Is extra</h4>
+                                                            <input name="isExtra" value="1" id="toggle-event" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -125,20 +130,21 @@
                                     <th>SL.</th>
                                     <th>Product</th>
                                     <th>Sub Product</th>
+                                    <th>Type</th>
                                     <th>Price</th>
                                     <th>Display order</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody id="product_list">
-                                <?php /*echo "<pre>"; print_r($products); echo "</pre>";*/?>
+                                <?php //echo "<pre>"; print_r($sub_products); echo "</pre>"; exit(); ?>
                                 <?php $counter = 1;?>
-                                <?php if(!empty($sub_products)) foreach ($sub_products as $product) {?>
+                                <?php if(!empty($sub_products)) foreach ($sub_products as $product) { ?>
                                     <tr>
                                         <td><?= $counter ?></td>
                                         <td><?= $product->product_name ?></td>
                                         <td><?= $product->name ?></td>
-
+                                        <td><?= $product->variationNames; ?></td>
                                         <td><?= $product->price ?></td>
                                         <td><?= $product->product_display_order ?></td>
 
@@ -157,85 +163,18 @@
                                         </span>
                                         </td>
                                     </tr>
-                                    <?php $counter++;?>
-                                <?php }?>
-
-                                <!--<tr>
-                                    <td>2</td>
-                                    <td>Anna</td>
-                                    <td width="30%">
-                                        <div class="pDescription-parent">
-                                            <p class="pDescription">
-                                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                            </p>
-                                            <div class="expandBtn">
-                                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <image class="pImage" src="http://lorempixel.com/40/40/">
-                                    </td>
-                                    <td>category</td>
-                                    <td class="text-center">
-                                        <div class="action-icon">
-                                            <a class="btn btn-success" href="javascript:;" data-toggle="modal" data-target="#offerModal">
-                                                <i class="fa fa-gift" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-												<span class="action-icon">
-													<a class="btn btn-danger" id="editProduct" href="javascript:;" title="Edit" data-toggle="modal" data-target="#editModal">
-														<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-													</a>
-												</span>
-
-                                        <span class="action-icon">
-													<a class="btn btn-primary" id="delProduct" href="javascript:;" title="Edit">
-														<i class="fa fa-minus-circle" aria-hidden="true"></i>
-													</a>
-												</span>
-
-                                        <span class="action-icon">
-													<a class="btn btn-success" id="discountPorduct" title="discount" href="javascript:;">
-														<i class="fa fa-handshake-o" aria-hidden="true"></i>
-													</a>
-												</span>
-                                    </td>
-                                </tr>-->
+                                    <?php $counter++; ?>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
-
-                        <!--nav aria-label="Page navigation">
-                            <ul class="pagination common-pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav-->
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-
+        </div> <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
 
@@ -294,7 +233,16 @@
                                                     <?php foreach ($products as $product) {?>
                                                         <option value="<?= $product->product_id?>"><?= $product->name?></option>
                                                     <?php }?>
-                                                    <!--<option>Category 2</option>-->
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Type</label>
+                                                <select name="variations[]" class="selectpicker" multiple data-selected-text-format="count > 3">
+                                                    <?php if ($variations){
+                                                        foreach ($variations as $variation) {
+                                                            echo '<option value="'. $variation->variation_id .'">'. $variation->variation_name .'</option>';
+                                                        }
+                                                    } ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -349,12 +297,6 @@
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="row">
-                                    <!--<div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="" placeholder="Product Name">
-                                        </div>
-                                    </div>-->
-
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <input name="offer_price" type="text" class="form-control" id="" placeholder="Offer Price">
@@ -367,91 +309,6 @@
                                         <textarea name="offer_description" placeholder="Offer Description" class="form-control margin-bottom-20" rows="3"></textarea>
                                     </div>
                                 </div>
-
-                                <!-- <div class="row">
-                                    <div class="col-sm-12 col-xs-12">
-
-                                        <div class="input-group margin-bottom-20">
-                                            <input type="text" class="form-control" readonly>
-                                            <label class="input-group-btn">
-                                                <span class="btn btn-primary">
-                                                    Browse&hellip; <input type="file" style="display: none;" multiple>
-                                                </span>
-                                            </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <select class="form-control w100">
-                                                <option>Category 1</option>
-                                                <option>Category 2</option>
-                                                <option>Category 3</option>
-                                                <option>Category 4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="" placeholder="Product Price">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="input-group date" data-provide="datepicker">
-                                                <input type="text" class="form-control" placeholder="Start Date">
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-th"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="input-group date" data-provide="datepicker">
-                                                <input type="text" class="form-control" placeholder="End Date">
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-th"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="" placeholder="Start Time">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="" placeholder="End Time">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-12 col-xs-12">
-                                        <textarea placeholder="Offer Description" class="form-control margin-bottom-20" rows="3"></textarea>
-                                    </div>
-                                </div> -->
-
                             </div>
 
                         </div>

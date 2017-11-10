@@ -85,7 +85,7 @@ class CustomerController extends BaseController
         $offerModel = new Offer();
         $data['offers'] = $offerModel->getRaw('select *, offer.is_active as offer_active from offer join products on products.product_id = offer.product_id where products.is_active = "True" and offer.is_active = "Active"');
         //echo "<pre>";print_r($data['offers']);echo "</pre>";exit();
-        $products = $productModel->getRaw("select *  from products join categories on categories.category_id = products.category_id where products.is_active = 'True' order by products.display_order, products.name asc;");
+        $products = $productModel->getRaw("select *  from products join categories on categories.category_id = products.category_id where products.is_active = 'True' AND products.is_extra = 'False' order by products.display_order, products.name asc;");
         //$data['categories'] = $categoryModel->getWhere(['is_active' => 'true']);
         $data['categories'] = $categoryModel->getRaw("select *  from categories where categories.is_active = 'True' order by display_order, category_name asc");
         $count = 0;
@@ -95,7 +95,7 @@ class CustomerController extends BaseController
 
         foreach ($data['categories'] as $category) {
             foreach ($products as $product) {
-                $sub_products = $subProductModel->getRaw("select *  from sub_products where product_id = $product->product_id order by sub_products.display_order, sub_products.name asc;");
+                $sub_products = $subProductModel->getRaw("select *  from sub_products where product_id = $product->product_id AND sub_products.is_extra = 'False' order by sub_products.display_order, sub_products.name asc;");
                 $product->sub_products = $sub_products;
                 if ($product->category_id == $category->category_id) {
                     $category->products[] = $product;
@@ -116,7 +116,7 @@ class CustomerController extends BaseController
             $count++;
 
         }
-        //echo "<pre>";print_r($data['categories']);echo "</pre>";exit();
+        // echo "<pre>";print_r($data);echo "</pre>";exit();
         $this->view('customer/order', $data);
     }
 
@@ -707,8 +707,7 @@ class CustomerController extends BaseController
 
             for($i=1; $i<=1; $i++){ // write order details on order-print.txt file by checking if it is locked or not.
                 $myfile = fopen($file,"w+");
-                $new_order = "#".$resId."*".$orderType."*".$orderId."*".$items."*".$deliveryCharge."*".$_SESSION['discount_price'].";".$totalAmount.";4;".$customerName.";".$deliveryAddress.";".$deliveryTime.";".$previousOrderNumber.";".$paymentStatus.";".$payment_type.";".$customerPhone.";*".$comment."#
-";
+                $new_order = "#".$resId."*".$orderType."*".$orderId."*".$items."*".$deliveryCharge."*".$_SESSION['discount_price'].";".$totalAmount.";4;".$customerName.";".$deliveryAddress.";".$deliveryTime.";".$previousOrderNumber.";".$paymentStatus.";".$payment_type.";".$customerPhone.";*".$comment."#";
                 fwrite($myfile,$new_order);
                 flock($myfile,LOCK_EX);
                 break;
@@ -731,7 +730,7 @@ class CustomerController extends BaseController
             $count = 3;
 
 
-            do {
+            /*do {
                 sleep(3);
 
                 $orderPrint = $orderModel->getWhere(['order_id' => $orderId], [], 'single');
@@ -761,7 +760,9 @@ class CustomerController extends BaseController
                 }
                 $count = $count+3;
             }
-            while ($status == 2);
+            while ($status == 2);*/
+
+            $data['status'] = 200;
 
 
             /**

@@ -123,4 +123,17 @@ class SubProduct extends DB
 
         return $data;
     }
+    /**
+     * Get last inserted id
+     *
+     * @param null
+     * @return id
+     */
+    public function getLastInsertedId()
+    {
+        $select = 'sub_product_id';
+        $sql = "SELECT ". $select ." FROM `". $this->tableName ."` ORDER BY ". $select ." DESC LIMIT 1";
+        $data = $this->select($sql);
+        return $data[0]->$select;
+    }
 }

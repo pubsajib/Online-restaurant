@@ -1,4 +1,4 @@
-<?php require_once "view/base/admin/header.php"?>
+<?php require_once "view/base/admin/header.php"; ?>
 
 	<!-- Page Content -->
 	<div id="page-wrapper">
@@ -19,20 +19,19 @@
 							<!--warning end-->
 
 							<div class="panel panel-default">
-								<div class="panel-heading">
-									Add Variation
-								</div>
+								<div class="panel-heading"> Add Type </div>
 
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-sm-6 col-sm-offset-3">
-											<!-- add variation input-->
+											<!-- add type input-->
 											<form id="form_create_variation" action="" method="post" class="margin-top-100">
 												<div class="input-group">
-													<input type="text" id="" required name="variation_name[]" class="form-control search-input" placeholder="Enter Variation Name" style="width:60%">
+													<input type="text" id="" required name="variation_name[]" class="form-control search-input" placeholder="Enter Type Name" style="width:60%">
 													<input type="number" id="" required="" name="display_order[]" class="form-control search-input" placeholder="Display Order" style="width: 35%;margin-left: 13px;">
 													<span class="input-group-btn">
 														<button class="btn btn-primary search-input search-input-btn add-url" id="" type="button"><i class="icon-plus icons"></i></button>
+														<button class="btn btn-danger search-input search-input-btn remove-url" id="" type="button"><i class="icon-minus icons"></i></button>
 													</span>
 												</div>
 												<ul class="add-url-list no-padding no-list-style">
@@ -50,7 +49,7 @@
 													</li>
 												</ul>
 
-												<button class="btn btn-primary center-block btn_create_variation" id="btnSearch" type="button">Add Variation</button>
+												<button class="btn btn-primary center-block btn_create_variation" id="btnSearch" type="button">Add Type</button>
 											</form>
 										</div>
 									</div>
@@ -58,7 +57,7 @@
 								</div>
 							</div>
 
-							<!-- add variation table-->
+							<!-- add type table-->
 
 							<div class="table-responsive margin-top-40">
 								<table class="table table-striped table-hover table-bordered">

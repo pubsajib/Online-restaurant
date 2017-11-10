@@ -135,7 +135,7 @@ class DB
             $sql .= $where;
         }
 
-        //echo $sql;exit();
+        // echo $sql;exit();
 
         if($where==''){
             return false;
@@ -273,7 +273,7 @@ class DB
         }
 
         $sql = $sql.$where;
-        //echo $sql;exit();
+        // echo $sql;exit();
         $selectedValue = $this->select($sql, $tag);
         //var_dump($selectedValue);exit();
 

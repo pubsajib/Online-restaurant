@@ -116,18 +116,23 @@
                                                             <textarea name="description" placeholder="Product Description" class="form-control" rows="3"></textarea>
                                                         </div>
                                                     </div>
-                                                    <div class="row addTYpe">
+                                                    <div class="row"> <br>
                                                         <div class="col-sm-12 col-xs-12">
-                                                            <div class="form-group">
-                                                                <label>Type</label>
-                                                                <select name="variation_id[]" class="selectpicker" multiple data-selected-text-format="count > 3">
+                                                            <h4 class="pull-left margin-right-15">Is extra</h4>
+                                                            <input name="isExtra" value="1" id="toggle-offer" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row addType">
+                                                        <div class="col-sm-12 col-xs-12">
+                                                            <div class="form-group select-type sub-m-t-15">
+                                                                <!--label>Type</label-->
+                                                                <select name="variations[]" class="selectpicker" multiple data-selected-text-format="count > 3" title="select types" style="width: 100%">
                                                                     <?php if ($variations){
                                                                         foreach ($variations as $variation) {
                                                                             echo '<option value="'. $variation->variation_id .'">'. $variation->variation_name .'</option>';
                                                                         }
                                                                     } ?>
                                                                 </select>
-
                                                             </div> 
                                                         </div>
                                                     </div>
@@ -137,7 +142,7 @@
                                                             <div class="row">
                                                                 <div class="col-sm-12 col-xs-12">
                                                                     <h4 class="pull-left margin-right-15">Offer</h4>
-                                                                    <input name="isOfferEnable" value="1" id="toggle-event" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
+                                                                    <input name="isOfferEnable" value="1" id="toggle-offer" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
                                                                 </div>
                                                             </div>
 
@@ -159,7 +164,7 @@
                                                                                         <div class="checkbox no-margin offerHiddenWrapper">
                                                                                             <label>
                                                                                                 <input name="offers[]" value="<?php echo $product->product_id; ?>" class="offer-status changeHidden" type="checkbox" disabled>
-                                                                                                <input class="offerHiddenValue" type="text" name="offersChecked[]">
+                                                                                                <input class="offerHiddenValue" type="hidden" name="offersChecked[]">
                                                                                             </label>
                                                                                         </div>
                                                                                     </td>
@@ -274,9 +279,11 @@
                                                     <div class="row margin-top-15">
                                                         <div class="col-sm-12 col-xs-12">
 
-                                                            <label for="Offers">Bundle</label>
+                                                            <!--label for="Offers">Bundle</label-->
+                                                            <h4 class="pull-left margin-right-15">Bundle</h4>
+                                                                    <input name="Bundle" value="1" id="toggle-event" class="pull-left" type="checkbox" data-toggle="toggle" data-toggle="toggle" data-on="Enabled" data-off="Disabled">
 
-                                                            <div class="table-responsive mw-300">
+                                                            <div class="table-responsive mw-300 clearfix" style="clear: both">
                                                                 <table class="table table-hover table-striped table-bordered">
                                                                     <thead>
                                                                         <tr>
@@ -296,7 +303,7 @@
                                                                                         <div class="checkbox no-margin bundleChangeHiddenWrapper">
                                                                                             <label>
                                                                                                 <input name="bundles[]" value="<?php echo $product->product_id; ?>" class="offer-status bundleChangeHidden" type="checkbox">
-                                                                                                <input class="bundleHiddenValue" type="text" name="bundlesChecked[]">
+                                                                                                <input class="bundleHiddenValue" type="hidden" name="bundlesChecked[]">
                                                                                             </label>
                                                                                         </div>
                                                                                     </td>
@@ -410,75 +417,10 @@
                                     </td>
                                 </tr>
                                 <?php $counter++;?>
-                                <?php }?>
-
-                                <!--<tr>
-                                    <td>2</td>
-                                    <td>Anna</td>
-                                    <td width="30%">
-                                        <div class="pDescription-parent">
-                                            <p class="pDescription">
-                                                It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                                            </p>
-                                            <div class="expandBtn">
-                                                <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <image class="pImage" src="http://lorempixel.com/40/40/">
-                                    </td>
-                                    <td>category</td>
-                                    <td class="text-center">
-                                        <div class="action-icon">
-                                            <a class="btn btn-success" href="javascript:;" data-toggle="modal" data-target="#offerModal">
-                                                <i class="fa fa-gift" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-												<span class="action-icon">
-													<a class="btn btn-danger" id="editProduct" href="javascript:;" title="Edit" data-toggle="modal" data-target="#editModal">
-														<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-													</a>
-												</span>
-
-                                        <span class="action-icon">
-													<a class="btn btn-primary" id="delProduct" href="javascript:;" title="Edit">
-														<i class="fa fa-minus-circle" aria-hidden="true"></i>
-													</a>
-												</span>
-
-                                        <span class="action-icon">
-													<a class="btn btn-success" id="discountPorduct" title="discount" href="javascript:;">
-														<i class="fa fa-handshake-o" aria-hidden="true"></i>
-													</a>
-												</span>
-                                    </td>
-                                </tr>-->
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
-
-                        <!--nav aria-label="Page navigation">
-                            <ul class="pagination common-pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav-->
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -578,9 +520,6 @@
                                                 </span>
                                             </label>
                                         </div>
-                                        <!--span class="help-block">
-                                            Try selecting one or more files and watch the feedback
-                                        </span-->
                                     </div>
                                 </div>
 
@@ -625,12 +564,6 @@
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="row">
-                                    <!--<div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="" placeholder="Product Name">
-                                        </div>
-                                    </div>-->
-
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
                                             <input name="offer_price" type="text" class="form-control" id="" placeholder="Offer Price">
@@ -643,95 +576,8 @@
                                         <textarea name="offer_description" placeholder="Offer Description" class="form-control margin-bottom-20" rows="3"></textarea>
                                     </div>
                                 </div>
-
-                                <!-- <div class="row">
-                                    <div class="col-sm-12 col-xs-12">
-                                
-                                        <div class="input-group margin-bottom-20">
-                                            <input type="text" class="form-control" readonly>
-                                            <label class="input-group-btn">
-                                                <span class="btn btn-primary">
-                                                    Browse&hellip; <input type="file" style="display: none;" multiple>
-                                                </span>
-                                            </label>
-                                        </div>
-                                
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <select class="form-control w100">
-                                                <option>Category 1</option>
-                                                <option>Category 2</option>
-                                                <option>Category 3</option>
-                                                <option>Category 4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="" placeholder="Product Price">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="input-group date" data-provide="datepicker">
-                                                <input type="text" class="form-control" placeholder="Start Date">
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-th"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="input-group date" data-provide="datepicker">
-                                                <input type="text" class="form-control" placeholder="End Date">
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-th"></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="" placeholder="Start Time">
-                                            </div>
-                                        </div>
-                                    </div>
-                                
-                                    <div class="col-sm-6 col-xs-12">
-                                        <div class="form-group">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="" placeholder="End Time">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-sm-12 col-xs-12">
-                                        <textarea placeholder="Offer Description" class="form-control margin-bottom-20" rows="3"></textarea>
-                                    </div>
-                                </div> -->
-
                             </div>
-
                         </div>
-
                     </form>
                 </div>
 
@@ -745,7 +591,7 @@
 
 
     <script>
-        //Enable/disable offer
+        // Enable/disable offer
         $(function() {
 
             $(document).on( 'change', '.changeHidden', function(event) {
@@ -764,7 +610,7 @@
                 }
             });
 
-            $('#toggle-event').change(function() {
+            $('#toggle-event, #toggle-offer').change(function() {
                 if($(this).is(':checked')){
                     $(this).parents('.offer-table').find('.offer-status').removeAttr('disabled');
                 }

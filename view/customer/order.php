@@ -1,4 +1,4 @@
-<?php require_once "view/base/customer/header.php"?>
+<?php require_once "view/base/customer/header.php"; ?>
 
     <!-- Product add notification -->
     <div class="productAddAlert hide">
@@ -52,14 +52,7 @@
 
     <!-- Section Main -->
     <section id="breadcrumb" data-background="assets/customer/img/main3.jpg" class="parallax-window orderBreadcrumb orderPageBreadcrumb">
-        <div>
-            <!--span class="section-suptitle text-center">Food Lover</span-->
-            <h1 class="section-title white-font text-center margin-top-40">Order Online</h1>
-            <!--ul>
-                <li><a href="">Home</a></li>
-                <li>About us</li>
-            </ul-->
-        </div>
+        <div> <h1 class="section-title white-font text-center margin-top-40">Order Online</h1> </div>
     </section>
     <!-- End Section Main -->
 
@@ -80,24 +73,6 @@
                                     Order Online
                                 </a>
                             </li>
-                            <!--li role="presentation">
-                                <a href="#Offer" aria-controls="Offer" role="tab" data-toggle="tab">
-                                    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
-                                    Offer
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#Reservation" aria-controls="Reservation" role="tab" data-toggle="tab">
-                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                                    Reservation
-                                </a>
-                            </li>
-                            <li role="presentation">
-                                <a href="#Info" aria-controls="Info" role="tab" data-toggle="tab">
-                                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                                    Info
-                                </a>
-                            </li-->
                         </ul>
 
                         <!-- Tab panes -->
@@ -123,17 +98,14 @@
                                                 </li>
                                                 <?php }?>
                                                 <?php $counter++; ?>
-                                            <?php }?>
-                                            <!--<li class="">
-                                                <a href="#category02" class="scroll-section">STARTERS</a>
-                                            </li>-->
+                                            <?php } ?>
                                         </ul>
                                     </div>
 
                                     <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
                                         <div class="category-dish-container">
                                             <?php if (!empty($categories))
-                                                foreach ($categories as $category) {?>
+                                                foreach ($categories as $category) { ?>
                                                 <?php
                                                 $categoryName = explode(' ', $category->category_name);
                                                 $key = array_search('&', $categoryName);
@@ -141,8 +113,8 @@
                                                     unset($categoryName[$key]);
                                                 }
                                                 $categoryName = implode('_', $categoryName);
-                                                ?>
-                                                <?php if (!empty($category->products)) {?>
+                                                
+                                                if (!empty($category->products)) {?>
                                                 <div id="<?php if (isset($categoryName)) echo $categoryName; ?>" class="category">
                                                     <div class="row">
                                                         <div class="col-md-12">
@@ -156,10 +128,6 @@
                                                                         <div class="col-md-9">
                                                                             <div class="dish-name"><?= $product->name; ?></div>
                                                                             <p class="dish-details"><?php if (isset($product->description)) echo $product->description; ?></p>
-                                                                            <!--<p class="dish-details">
-                                                                                <b>Allergens Info:</b>
-                                                                                <span class="allergensInfo">Mustard</span>
-                                                                            </p>-->
                                                                         </div>
                                                                         <?php if (empty($product->sub_products)){?>
                                                                         <div class="col-md-3">
@@ -186,7 +154,7 @@
                                                                                         <input type="hidden" name="sub_product_id" value="">
                                                                                         <input type="hidden" name="product_name" value="<?= $product_title; ?>">
                                                                                         <input type="hidden" name="product_price" value="<?= number_format($product->price, 2, '.', '') ?>">
-                                                                                        <a class="add_to_cart" product_id="<?= $product->product_id ?>" product_name="<?= $product_title ?>" product_desc="<?= $product_desc ?>" data-status="increment" onclick=""><i class="fa fa-plus"></i></a>
+                                                                                        <a class="add_to_cart addToCart" product_id="<?= $product->product_id ?>" product_name="<?= $product_title ?>" product_desc="<?= $product_desc ?>" data-status="increment" onclick=""><i class="fa fa-plus"></i></a>
                                                                                     </form>
                                                                                 </div>
                                                                                 <div class="clearfix"></div>
@@ -216,7 +184,7 @@
                                                                                         <input type="hidden" name="sub_product_id" value="<?= $sub_product->sub_product_id ?>">
                                                                                         <input type="hidden" name="product_name" value="<?= $product_title ?>">
                                                                                         <input type="hidden" name="product_price" value="<?= number_format($sub_product->price, 2, '.', '') ?>">
-                                                                                        <a class="add_to_cart" product_id="<?= $product->product_id ?>" product_name="<?= $product_title ?>" product_desc="<?= $product_desc ?>" data-status="increment" onclick=""><i class="fa fa-plus"></i></a>
+                                                                                        <a class="add_to_cart addToCart" product_id="<?= $product->product_id ?>" product_name="<?= $product_title ?>" product_desc="<?= $product_desc ?>" data-status="increment" onclick=""><i class="fa fa-plus"></i></a>
                                                                                     </form>
                                                                                 </div>
                                                                                 <div class="clearfix"></div>
@@ -307,45 +275,10 @@
                                             <i class="fa fa-4x fa-shopping-bag" aria-hidden="true"></i>
                                             <p class="text-center">Add menu items into your basket</p>
                                         </div>
-
+                                        
                                         <div class="cart-table">
                                             <table class="table table-striped">
                                                 <tbody class="cart_product_list">
-                                                <?php /*if (!empty($_SESSION['cart']['products'])) foreach ($_SESSION['cart']['products'] as $item) {*/?><!--
-                                            <tr class="hobtr">
-                                                <td class="cross-td custom-spinner">
-                                                    <div class="input-group spinner">
-                                                        <button class="btn btn-default cust-plus cust-plus-increment" type="button" onclick="add_to_cart(<?/*= $item['product_id'] */?>)">
-                                                            <i class="fa fa-plus"></i>
-                                                        </button>
-                                                        <input class="form-control increse-val" value="<?/*= $item['quantity'] */?>" readonly="" type="text">
-                                                        <button class="btn btn-default cust-plus cust-plus-decrement" type="button" onclick="add_to_cart(<?/*= $item['product_id'] */?>, true)">
-                                                            <i class="fa fa-minus"></i>
-                                                        </button>
-                                                    </div><span class="qnt-idn"><?/*= $item['quantity'] */?> x</span>
-                                                </td>
-                                                <td class="itme-td"><?/*= $item['name'] */?></td>
-                                                <td class="amont-td">
-                                                    <i class="fa fa-times-circle-o" onclick="remove_item_from_cart(<?/*= $item['product_id'] */?>)"></i> <span class="main-price"><?/*= $item['price'] */?></span>
-                                                </td>
-                                            </tr>
-                                            --><?php /*}*/?>
-
-                                                <!--<tr class="hobtr">
-                                                    <td class="cross-td custom-spinner">
-                                                        <div class="input-group spinner">
-                                                            <button class="btn btn-default cust-plus cust-plus-increment" type="button"><i class="fa fa-plus"></i>
-                                                            </button>
-                                                            <input class="form-control increse-val" value="11" readonly="" type="text">
-                                                            <button class="btn btn-default cust-plus cust-plus-decrement" type="button"><i class="fa fa-minus"></i>
-                                                            </button>
-                                                        </div><span class="qnt-idn">11 x</span>
-                                                    </td>
-                                                    <td class="itme-td">Lime Pickle</td>
-                                                    <td class="amont-td"><i class="fa fa-times-circle-o"></i> <span class="main-price">8.80</span>
-                                                    </td>
-                                                </tr>-->
-
                                                 </tbody>
                                             </table>
                                         </div>
@@ -364,12 +297,6 @@
                                                 </div>
                                                 <div class="col-md-4 col-xs-4 text-right">£<?php if (isset($settings)) echo number_format($settings->delivery_charge, 2, '.', '') ?></div>
                                             </div>
-                                            <!-- <div class="row color-gray">
-                                                <div class="col-md-8 col-xs-8">
-                                                    <p>Discount: </p>
-                                                </div>
-                                                <div class="col-md-4 col-xs-4 text-right">0.00</div>
-                                            </div> -->
                                             <div class="row">
                                                 <div class="col-md-4 col-xs-4">
                                                     <p>Total: </p>
@@ -618,73 +545,183 @@
 
         </div>
     </div>
-
-    <!--Add Type modal-->
-    <!-- Modal -->
-    <div class="modal fade" id="addType" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Karma</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p class="typeDetails">
-                                <span>Chicken</span>
-                                <span>$8.50</span>
-                            </p>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <p class="typeDetails">
-                                <span>Chicken</span>
-                                <span>$8.50</span>
-                            </p>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <p class="typeDetails">
-                                <span>Chicken</span>
-                                <span>$8.50</span>
-                            </p>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <p class="typeDetails">
-                                <span>Chicken</span>
-                                <span>$8.50</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Add Offer START -->
-    <div class="modal fade" id="addOffer" tabindex="-1" role="dialog">
+    <!-- ===================================================================================================================== -->
+    <div class="modal extraOffer fade" id="masterPopUP" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Parent Product Name, Product name</h4>
-                    <p class="modal-description">Test Product Description</p>
+                    <ul class="bundle-list">
+                        <li>Any 3X10" Pizzas</li>
+                        <li>6 Pieces of hot wings</li>
+                        <li>Potato Widgets</li>
+                        <li>Soft Drinks</li>
+                    </ul>
                 </div>
 
                 <div class="modal-body">
-                    <div class="cart-content">
-                        <!--warning-->
-                        <div class="alert alert-success alert-dismissible" role="alert" style="display: none;">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <!-- Offer selected list START -->
+                    <div class="offer-selected-list">
+                        <div class="row offer-selected-item">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="col-sm-11 col-xs-6">
+                                <p><strong>10" Deep Pan Pizza</strong></p>
+                            </div>
                         </div>
-                        <div class="alert alert-danger alert-dismissible" role="alert" style="display: none;">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                                            </div>
-                        <!--warning end-->
 
+                        <div class="row offer-selected-item">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-11 col-xs-6">
+                                <p><strong>7" Deep Chesse Pizza</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="row offer-selected-item">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-11 col-xs-6">
+                                <p><strong>10" Maxican hot town Pizza</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer selected list START -->
+                    
+                    <!-- Extra selected list START -->
+                    <div class="extra-selected-list">
+                        <div class="row extra-selected-item">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-xs-6">
+                                <p><strong>Extra: </strong></p>
+                            </div>
+
+                            <div class="col-sm-10 col-xs-12">
+                                <p><span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span></p>
+                            </div>
+                        </div>
+
+                        <div class="row extra-selected-item">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-1 col-xs-6">
+                                <p><strong>Extra: </strong></p>
+                            </div>
+
+                            <div class="col-sm-10 col-xs-12">
+                                <p><span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Extra selected list END -->
+                    
+                    <!-- Offer/bbundle list START -->
+                    <div class="all-offer-list">
+                        <div class="row offer-list-title">
+                            <div class="col-sm-6">
+                                <p><strong>Select option</strong></p>
+                            </div>    
+                            <div class="col-sm-6">
+                                <p></p>
+                            </div>    
+                        </div>
+                        
+                        <div class="row">
+                            <div class="">
+                                <ul class="offer-list">
+                                    <li class="">
+                                        <div class="row">
+
+                                            <div class="col-sm-7 col-xs-12">
+                                                <p><strong>Meet Feast, 10.5" Deep pan</strong></p>
+                                            </div>
+
+                                            <div class="col-sm-5 col-xs-12">
+                                                <p class="offer-list-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, expedita.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="row">
+
+                                            <div class="col-sm-7 col-xs-12">
+                                                <p><strong>Meet Feast, 10.5" Deep pan</strong></p>
+                                            </div>
+
+                                            <div class="col-sm-5 col-xs-12">
+                                                <p class="offer-list-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, expedita.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="row">
+
+                                            <div class="col-sm-7 col-xs-12">
+                                                <p><strong>Meet Feast, 10.5" Deep pan</strong></p>
+                                            </div>
+
+                                            <div class="col-sm-5 col-xs-12">
+                                                <p class="offer-list-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, expedita.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer/bbundle list END -->
+
+                    <!--Add Extra START -->
+                    <div id="addExtra">
                         <div class="cfo-cart clearfix">
                             <div class="cart-info" id="ExtraCart">
                                 <form action="">
@@ -692,14 +729,13 @@
                                         <ul>
                                             <li>
                                                 <div class="row no-margin">
-
                                                     <div class="col-sm-6">
                                                         <div class="itme-td">Test product 01</div>
                                                     </div>
 
                                                     <div class="col-sm-5 text-right">
                                                         <div class="extra-td">
-                                                            <span class="extra-price">1000.00</span>
+                                                            <span class="extra-price">£ 1000 </span>
                                                         </div>
                                                     </div>
 
@@ -720,22 +756,24 @@
                                                             <div class="col-sm-1">
                                                                 <a class="common-close-btn extra-rmv" href="javascript:;"><i class="fa fa-close"></i></a>
                                                             </div>
-                                                            <div class="col-sm-1">
+                                                            <div class="col-sm-3">
                                                                 <div class="hobtr add-dlt-col">
                                                                     <div class="cross-td custom-spinner offer-spiner">
-                                                                        <div class="input-group spinner l10">
-                                                                            <input type="hidden" class="product_price" name="product_price" value="1000.00">
-                                                                            <button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button>
-                                                                            <input class="form-control increse-val" value="1" readonly="" type="text">
-                                                                            <button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button>
+                                                                        <div class="input-group spinner l10 modal-extra-edit">
+                                                                            <input type="hidden" class="product_price" name="product_price" value="500">
+                                                                            <ul>
+                                                                                <li><button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button></li>
+                                                                                <li><input class="form-control increse-val" value="1" readonly="" type="text"></li>
+                                                                                <li><button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button></li>
+                                                                            </ul>
                                                                         </div><span class="qnt-idn">1</span>x
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-10 text-right">
+                                                            <div class="col-sm-8 text-right">
                                                                 <div class="extra-td lh-43">
-                                                                    <span class="extra-price">1000.00</span>
+                                                                    <span class="extra-price">£ 1000</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -752,7 +790,7 @@
 
                                                     <div class="col-sm-5 text-right">
                                                         <div class="extra-td">
-                                                            <span class="extra-price">700</span>
+                                                            <span class="extra-price">£ 700</span>
                                                         </div>
                                                     </div>
 
@@ -771,24 +809,26 @@
                                                     <div class="panel-body">
                                                         <div class="row no-margin">
                                                             <div class="col-sm-1">
-                                                                <a class="common-close-btn" href="javascript:;"><i class="fa fa-close"></i></a>
+                                                                <a class="common-close-btn extra-rmv" href="javascript:;"><i class="fa fa-close"></i></a>
                                                             </div>
-                                                            <div class="col-sm-1">
+                                                            <div class="col-sm-3">
                                                                 <div class="hobtr add-dlt-col">
                                                                     <div class="cross-td custom-spinner offer-spiner">
-                                                                        <div class="input-group spinner l10">
-                                                                            <input type="hidden" class="product_price" name="product_price" value="700">
-                                                                            <button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button>
-                                                                            <input class="form-control increse-val" value="1" readonly="" type="text">
-                                                                            <button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button>
+                                                                        <div class="input-group spinner l10 modal-extra-edit">
+                                                                            <input type="hidden" class="product_price" name="product_price" value="500">
+                                                                            <ul>
+                                                                                <li><button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button></li>
+                                                                                <li><input class="form-control increse-val" value="1" readonly="" type="text"></li>
+                                                                                <li><button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button></li>
+                                                                            </ul>
                                                                         </div><span class="qnt-idn">1</span>x
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-10 text-right">
+                                                            <div class="col-sm-8 text-right">
                                                                 <div class="extra-td lh-43">
-                                                                    <span class="extra-price">700</span>
+                                                                    <span class="extra-price">£ 700</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -805,7 +845,7 @@
 
                                                     <div class="col-sm-5 text-right">
                                                         <div class="extra-td">
-                                                            <span class="extra-price">500</span>
+                                                            <span class="extra-price">£ 500</span>
                                                         </div>
                                                     </div>
 
@@ -824,24 +864,26 @@
                                                     <div class="panel-body">
                                                         <div class="row no-margin">
                                                             <div class="col-sm-1">
-                                                                <a class="common-close-btn" href="javascript:;"><i class="fa fa-close"></i></a>
+                                                                <a class="common-close-btn extra-rmv" href="javascript:;"><i class="fa fa-close"></i></a>
                                                             </div>
-                                                            <div class="col-sm-1">
+                                                            <div class="col-sm-3">
                                                                 <div class="hobtr add-dlt-col">
                                                                     <div class="cross-td custom-spinner offer-spiner">
-                                                                        <div class="input-group spinner l10">
+                                                                        <div class="input-group spinner l10 modal-extra-edit">
                                                                             <input type="hidden" class="product_price" name="product_price" value="500">
-                                                                            <button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button>
-                                                                            <input class="form-control increse-val" value="1" readonly="" type="text">
-                                                                            <button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button>
+                                                                            <ul>
+                                                                                <li><button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button></li>
+                                                                                <li><input class="form-control increse-val" value="1" readonly="" type="text"></li>
+                                                                                <li><button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button></li>
+                                                                            </ul>
                                                                         </div><span class="qnt-idn">1</span>x
                                                                     </div>
                                                                 </div>
                                                             </div>
 
-                                                            <div class="col-sm-10 text-right">
+                                                            <div class="col-sm-8 text-right">
                                                                 <div class="extra-td lh-43">
-                                                                    <span class="extra-price">500</span>
+                                                                    <span class="extra-price">£ 500</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -851,37 +893,386 @@
                                         </ul>
                                         
                                     </div>
-
-                                    <div class="clearfix"></div>
-                                    <div class="ui-order-description order-description" style="">
-                                        <div class="row">
-                                            <div class="col-md-4 col-xs-4">
-                                                <p>Total: </p>
-                                            </div>
-                                            <div class="col-md-8 col-xs-8 text-right ">£<span id="extra-order-total-amount" class="">1000</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
                     </div>
+                    <!--Add Extra END -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn common-btn SkipExtra sm-btn" data-dismiss="modal">Skip Extra</button>
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 text-left">
+                            <button type="button" class="btn common-btn addExtraCart sm-btn" data-dismiss="modal">Add to Basket</button>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12 text-right">
+                            <p class="lh-30 black-text"><strong>Total: £<span id="extra-order-total-amount" class="">1000</span></strong></p>
+                        </div>
+                    </div>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div>
-    <!-- Add Offer END -->
+    <a href="javascript:;" id="masterPopUPShow">Master Modal</a>
+    <!-- ===================================================================================================================== -->
+    <div class="modal extraOffer fade" id="productPopUp" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Parent Product Name, Product name</h4>
+                    <div class="modal-description">Description</div>
+                </div>
+
+                <div class="modal-body">
+                    <div class="testArea"></div>
+                    <!-- Offer selected list START -->
+                    <div class="offer-selected-list selectedList">
+
+                        <div class="row offer-selected-item hidden">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-11 col-xs-6">
+                                <p><strong>7" Deep Chesse Pizza</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="row offer-selected-item hidden">
+                            <div class="col-sm-1 col-xs-6">
+                                <div class="extra-td text-right">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn offer-add extra-added active">
+                                            <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-11 col-xs-6">
+                                <p><strong>10" Maxican hot town Pizza</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Offer selected list START -->
+                    <div id="productPopUpContent">
+                        <!-- Extra selected list START -->
+                        <div class="extra-selected-list">
+                            <div class="row extra-selected-item">
+                                <div class="col-sm-1 col-xs-6">
+                                    <div class="extra-td text-right">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn offer-add extra-added active">
+                                                <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-1 col-xs-6">
+                                    <p><strong>Extra: </strong></p>
+                                </div>
+
+                                <div class="col-sm-10 col-xs-12">
+                                    <p><span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span></p>
+                                </div>
+                            </div>
+
+                            <div class="row extra-selected-item">
+                                <div class="col-sm-1 col-xs-6">
+                                    <div class="extra-td text-right">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn offer-add extra-added active">
+                                                <input type="checkbox" autocomplete="off" checked="checked" disabled="">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-1 col-xs-6">
+                                    <p><strong>Extra: </strong></p>
+                                </div>
+
+                                <div class="col-sm-10 col-xs-12">
+                                    <p><span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span>,<span>Extra 01</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Extra selected list END -->
+                        
+                        <!-- Offer/bbundle list START -->
+                        <div class="all-offer-list">
+                            <div class="row offer-list-title">
+                                <div class="col-sm-6">
+                                    <p><strong>Select option</strong></p>
+                                </div>    
+                                <div class="col-sm-6">
+                                    <p></p>
+                                </div>    
+                            </div>
+                            
+                            <div class="row">
+                                <div class="">
+                                    <ul class="offer-list">
+                                        <li class="">
+                                            <div class="row">
+
+                                                <div class="col-sm-7 col-xs-12">
+                                                    <p><strong>Meet Feast, 10.5" Deep pan</strong></p>
+                                                </div>
+
+                                                <div class="col-sm-5 col-xs-12">
+                                                    <p class="offer-list-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, expedita.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="row">
+
+                                                <div class="col-sm-7 col-xs-12">
+                                                    <p><strong>Meet Feast, 10.5" Deep pan</strong></p>
+                                                </div>
+
+                                                <div class="col-sm-5 col-xs-12">
+                                                    <p class="offer-list-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, expedita.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div class="row">
+
+                                                <div class="col-sm-7 col-xs-12">
+                                                    <p><strong>Meet Feast, 10.5" Deep pan</strong></p>
+                                                </div>
+
+                                                <div class="col-sm-5 col-xs-12">
+                                                    <p class="offer-list-des">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, expedita.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Offer/bbundle list END -->
+
+                        <!--Add Extra START -->
+                        <div id="addExtra">
+                            <div class="cfo-cart clearfix">
+                                <div class="cart-info" id="ExtraCart">
+                                    <form action="">
+                                        <div class="extra-table">
+                                            <ul>
+                                                <li>
+                                                    <div class="row no-margin">
+                                                        <div class="col-sm-6">
+                                                            <div class="itme-td">Test product 01</div>
+                                                        </div>
+
+                                                        <div class="col-sm-5 text-right">
+                                                            <div class="extra-td">
+                                                                <span class="extra-price">£ 1000 </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-1">
+                                                            <div class="extra-td text-right">
+                                                                <div class="btn-group" >
+                                                                    <label class="btn offer-add" type="button" data-toggle="collapse" data-target="#extra01">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div id="extra01" class="extra-collespe-panel panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="row no-margin">
+                                                                <div class="col-sm-1">
+                                                                    <a class="common-close-btn extra-rmv" href="javascript:;"><i class="fa fa-close"></i></a>
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <div class="hobtr add-dlt-col">
+                                                                        <div class="cross-td custom-spinner offer-spiner">
+                                                                            <div class="input-group spinner l10 modal-extra-edit">
+                                                                                <input type="hidden" class="product_price" name="product_price" value="500">
+                                                                                <ul>
+                                                                                    <li><button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button></li>
+                                                                                    <li><input class="form-control increse-val" value="1" readonly="" type="text"></li>
+                                                                                    <li><button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button></li>
+                                                                                </ul>
+                                                                            </div><span class="qnt-idn">1</span>x
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-8 text-right">
+                                                                    <div class="extra-td lh-43">
+                                                                        <span class="extra-price">£ 1000</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="row no-margin">
+
+                                                        <div class="col-sm-6">
+                                                            <div class="itme-td">Test product 01</div>
+                                                        </div>
+
+                                                        <div class="col-sm-5 text-right">
+                                                            <div class="extra-td">
+                                                                <span class="extra-price">£ 700</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-1">
+                                                            <div class="extra-td text-right">
+                                                                <div class="btn-group" >
+                                                                    <label class="btn offer-add" type="button" data-toggle="collapse" data-target="#extra02">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div id="extra02" class="extra-collespe-panel panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="row no-margin">
+                                                                <div class="col-sm-1">
+                                                                    <a class="common-close-btn extra-rmv" href="javascript:;"><i class="fa fa-close"></i></a>
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <div class="hobtr add-dlt-col">
+                                                                        <div class="cross-td custom-spinner offer-spiner">
+                                                                            <div class="input-group spinner l10 modal-extra-edit">
+                                                                                <input type="hidden" class="product_price" name="product_price" value="500">
+                                                                                <ul>
+                                                                                    <li><button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button></li>
+                                                                                    <li><input class="form-control increse-val" value="1" readonly="" type="text"></li>
+                                                                                    <li><button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button></li>
+                                                                                </ul>
+                                                                            </div><span class="qnt-idn">1</span>x
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-8 text-right">
+                                                                    <div class="extra-td lh-43">
+                                                                        <span class="extra-price">£ 700</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="row no-margin">
+
+                                                        <div class="col-sm-6">
+                                                            <div class="itme-td">Test product 01</div>
+                                                        </div>
+
+                                                        <div class="col-sm-5 text-right">
+                                                            <div class="extra-td">
+                                                                <span class="extra-price">£ 500</span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-sm-1">
+                                                            <div class="extra-td text-right">
+                                                                <div class="btn-group" >
+                                                                    <label class="btn offer-add" type="button" data-toggle="collapse" data-target="#extra03">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div id="extra03" class="extra-collespe-panel panel-collapse collapse">
+                                                        <div class="panel-body">
+                                                            <div class="row no-margin">
+                                                                <div class="col-sm-1">
+                                                                    <a class="common-close-btn extra-rmv" href="javascript:;"><i class="fa fa-close"></i></a>
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <div class="hobtr add-dlt-col">
+                                                                        <div class="cross-td custom-spinner offer-spiner">
+                                                                            <div class="input-group spinner l10 modal-extra-edit">
+                                                                                <input type="hidden" class="product_price" name="product_price" value="500">
+                                                                                <ul>
+                                                                                    <li><button class="btn btn-default cust-plus offer-plus-increment" data-status="increment" type="button"><i class="fa fa-plus"></i></button></li>
+                                                                                    <li><input class="form-control increse-val" value="1" readonly="" type="text"></li>
+                                                                                    <li><button class="btn btn-default cust-plus offer-plus-decrement" data-status="decrement" type="button"><i class="fa fa-minus"></i></button></li>
+                                                                                </ul>
+                                                                            </div><span class="qnt-idn">1</span>x
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-8 text-right">
+                                                                    <div class="extra-td lh-43">
+                                                                        <span class="extra-price">£ 500</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Add Extra END -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12 text-left">
+                            <button type="button" class="btn common-btn addExtraCart sm-btn" data-dismiss="modal">Add to Basket</button>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12 text-right">
+                            <p class="lh-30 black-text"><strong>Total: £<span id="extra-order-total-amount" class="">1000</span></strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
 
 <?php require_once "view/base/customer/pre_footer.php" ?>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-
         $(document).ready(function(){
+            $(document).on( 'click', '#masterPopUPShow', function (event) {
+                $('#masterPopUP').modal('show');
+            });
 
             // For mobile first
             if ($(window).width() < 767) {
@@ -947,8 +1338,6 @@
                 $('.lab-slide-up').find('a').attr('data-target', '#lab-slide-bottom-popup');
             });
             // For mobile first end
-
-            
 
             //For modal selection delivery or collection 
             $("#deliveryRadMain").click(function(){
@@ -1121,10 +1510,6 @@
                         return;
                     }
                 }*/
-
-
-                //Add offser modal
-                //$('#addOffer').modal('show');
 
                 var form = $(this).parents('form:first');
                 var status = $(this).data('status');
@@ -1519,33 +1904,75 @@
     <script>
         // Ajax for showing offers and extras
         jQuery(function($) {
-            $(document).on('click', '.add_to_cart', function (event) {
+            var addToCart       = [];
+            $(document).on('click', '.addToCart', function (event) {
                 var productId   = $(this).attr('product_id');
                 var productName = $(this).attr('product_name');
                 var productDesc = $(this).attr('product_desc');
                 var ajaxUrl     = "<?php echo BASE_URL?>/admin/product-offers";
-                $('#addOffer .modal-title').html(productName);
-                $('#addOffer .modal-description').html(productDesc);
+                // addToCart       = [];
+                $('#productPopUp .modal-title').html(productName);
+                $('#productPopUp .modal-description').html(productDesc);
+
                 $.ajax({
                     url: ajaxUrl,
                     type: "post",
-                    data: {productId:productId},
+                    data: { productId:productId },
                     success: function (data) {
                         // alert(data);
                         // console.log(data);
                         if ( data != 404 ) {
-                            $('#ExtraCart').html(data);
-                            $('#addOffer').modal('show');
+                            $('#productPopUpContent').html(data);
+                            $('#productPopUp').modal('show');
                         }
-                        
+                        addToCart.push({
+                            id:productId,
+                            name:productName,
+                            desc:productDesc
+                        });
+                        console.log(addToCart);
                     },
                     error: function (e) {
                         // alert('error');
                     }
                 });
             });
+
+            // add offer
+            $(document).on('click','.offer-list>li.add',function(){
+                $(this).parent('.offer-list').children('li').removeClass('active');
+                var selectedOffer       = $(this);
+                var selectedOfferId     = selectedOffer.attr('id');
+                var selectedOfferName   = selectedOffer.find('strong').html();
+                selectedOffer.removeClass('add').addClass('added active');
+
+                $('.selectedList').append(selectedOfferProductHtml(selectedOfferName));
+                addToCart.push({product:'testData'});
+                $( '.testArea' ).text( 'TestData : '+ selectedOfferId +' Name : '+ selectedOfferName);
+                // console.log(addToCart);
+            });
         });
 
+
+        function selectedOfferProductHtml(name='offer name') {
+            var data = '<div class="row offer-selected-item selectedOfferProduct">'+
+                            '<div class="col-sm-1 col-xs-6">'+
+                                '<div class="extra-td text-right">'+
+                                    '<div class="btn-group" data-toggle="buttons">'+
+                                        '<label class="btn offer-add extra-added active">'+
+                                            '<input type="checkbox" autocomplete="off" checked="checked" disabled="">'+
+                                            '<span class="glyphicon glyphicon-ok"></span>'+
+                                        '</label>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+
+                            '<div class="col-sm-11 col-xs-6">'+
+                                '<p><strong id="productName">'+ name +'</strong></p>'+
+                            '</div>'+
+                        '</div>';
+            return data;
+        }
     </script>
 
-<?php require_once "view/base/customer/footer.php"?>
+<?php require_once "view/base/customer/footer.php"; ?>

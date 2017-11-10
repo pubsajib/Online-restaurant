@@ -91,7 +91,6 @@ class ProductVariation extends DB
     public function delete($where)
     {
         $returned = $this->deleteData($this->tableName, $where);
-
         if ($returned) {
             return ['status' => 200, 'message' => 'Successfully Deleted'];
         } else {

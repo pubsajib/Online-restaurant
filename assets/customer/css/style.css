@@ -4528,6 +4528,10 @@ a.clicker:after,a.clicker:before{
 .offer-add span.glyphicon {         
   opacity: 0;       
 }
+
+.extra-added span.glyphicon {         
+  opacity: 1 !important;       
+}
 .offer-add.active span.glyphicon, .offer-add {        
   opacity: 1;      
 }
@@ -4591,17 +4595,20 @@ a.clicker:after,a.clicker:before{
 .lh-43{
   line-height: 43px;
 }
+.lh-30{
+  line-height: 30px;
+}
 .itme-td{
   font-weight: 700;
   color: #333;
 }
 .common-close-btn i {
-    border: 2px solid #cf9b67;
-    padding: 3px 4px;
-    color: #cf9b67;
-    border-radius: 50%;
-    font-size: 11px;
-    margin-top: 15px;
+  border: 2px solid #cf9b67;
+  padding: 3px 4px;
+  color: #cf9b67;
+  border-radius: 50%;
+  font-size: 11px;
+  margin-top: 15px;
 }
 .l10{
   left: 10px;
@@ -4609,8 +4616,105 @@ a.clicker:after,a.clicker:before{
 .f17{
   font-size: 17px;
 }
-.extra-table {
-    max-height: 400px;
-    overflow-y: auto;
+.extraOffer .modal-header {
+  border-bottom: 1px solid #cf9b67;
+  background-color: #cf9b67 !important;
+  color: #fff;
 }
+.extraOffer .modal-header>p{
+  color: #fff;
+}
+.black-text{color: #333;}
 /*Extra Modal END*/
+
+/*Offer List START*/
+#offerList .modal-body{
+  padding: 0 15px;
+}
+.offer-list-des{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+}
+.offer-list-title{
+  /* margin-top: -15px; */
+  padding: 7px 0;
+  border-bottom: 1px solid #cf9b67;
+}
+.offer-list{
+  margin-bottom: 0;
+}
+.offer-list>li{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 7px 15px;
+}
+.offer-list>li:last-child{
+  border-bottom: 0;
+}
+.offer-list>li.active{
+  background-color: #cf9b67 !important;
+  color: #fff;
+}
+.offer-list>li.active p{
+  color: #fff;
+}
+.offer-list>li p{
+  font-size: 13px;
+}
+.extraOffer .close{
+    margin-right: 0px;
+    color: #fff !important;
+    opacity: 1;
+}
+.extraOffer .modal-body {
+  max-height: 73vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.extraCart>tbody>tr>td {
+    height: auto !important;
+    font-weight: 400;
+}
+.extra p {
+    font-size: 13px;
+}
+.extra td{
+  height: auto;
+  padding: 0;
+}
+/*Offer List END*/
+
+/*Master Modal Layout START*/
+.bundle-list {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+.bundle-list>li{
+  font-size: 13px;
+}
+.offer-selected-list, .extra-selected-list {
+    
+}
+.offer-selected-item, .extra-selected-item{
+    border-bottom: 1px solid #cf9b67;
+    padding: 5px 0;
+}
+.modal-extra-edit{
+  display: block !important;
+}
+.modal-extra-edit ul{
+  margin-top: 12px;
+}
+.modal-extra-edit ul>li{
+  float: left;
+  display: inline-block;
+}
+.modal-extra-edit ul>li button, .modal-extra-edit ul>li .increse-val{
+  height: 30px;
+  width: 30px !important;
+}
+/* .offer-selected-item:last-child, .extra-selected-item:last-child{
+    border-bottom: 1px solid #cf9b67;
+} */
+/*Master Modal Layout END*/
