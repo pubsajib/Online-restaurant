@@ -1,4 +1,4 @@
-<?php require_once "view/base/admin/header.php"?>
+<?php require_once "view/base/admin/header.php"; ?>
 
 	<!-- Page Content -->
 	<div id="page-wrapper">
@@ -239,18 +239,16 @@
 
 				var validate = '';
 				var names = $("#form_create_category input[name='category_name\\[\\]']").map(function(){return $(this).val();}).get();
-				var display_orders = $("#form_create_category input[name='display_order\\[\\]']").map(function(){return $(this).val();}).get();
+				// var display_orders = $("#form_create_category input[name='display_order\\[\\]']").map(function(){return $(this).val();}).get();
 				//console.log(names);return;
 				$.each(names, function (key, name) {
 					if (name.trim('') == '') {
 						validate = 'Category Name is required';
 					}
 				});
-				$.each(display_orders, function (key, display_order) {
-					if (display_order.trim('') == '') {
-						validate += '<br>Display order is required';
-					}
-				});
+				// $.each(display_orders, function (key, display_order) {
+				// 	if (display_order.trim('') == '') { validate += '<br>Display order is required'; }
+				// });
 
 
 				if (validate != '') {
@@ -381,9 +379,7 @@
 			if (name.trim('') == '') {
 				validate += 'Category name is required';
 			}
-			if (diaplay_order.trim('') == '') {
-				validate += 'Display Order is required';
-			}
+			// if (diaplay_order.trim('') == '') { validate += 'Display Order is required'; }
 
 			if (validate != '') {
 				$('.alert-success').hide();
@@ -394,8 +390,6 @@
 				}, 3000);
 				return;
 			}
-
-
 
 			//var form = $(this).parents('form:first');
 			var formData = new FormData( $('#category_form_'+counter)[0]);
@@ -428,6 +422,7 @@
 						setTimeout(function () {
 							$('.alert-success').hide();
 							$('#editModal').modal('hide');
+							window.location.href="<?php echo BASE_URL?>/admin/category";
 						}, 3000);
 					} else {
 						$('.alert-success').hide();

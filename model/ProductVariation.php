@@ -114,7 +114,7 @@ class ProductVariation extends DB
 
     public function getProductRealtedVariations($productID)
     {
-        $sql = "select *  from ". $this->tableName ." where product_id = $productID order by offer_id asc;";
+        $sql = "select *  from ". $this->tableName ." where product_id = $productID order by product_variations_id asc;";
         $data = $this->select($sql);
 
         return $data;

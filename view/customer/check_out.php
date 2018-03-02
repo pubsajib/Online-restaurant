@@ -375,6 +375,39 @@
 	                                                <td class="amont-td"><i class="fa fa-times-circle-o" ></i> <span class="main-price"><?= number_format($product->price, 2, '.', '') ?></span>
 	                                                </td>
 	                                            </tr>
+													<?php foreach($product->all_extra_items as $offer) { ?>
+														<tr class="extra">
+															<td></td>
+															<td><p><?php echo $offer->name ?></td>
+															<?php if($offer->type=="extra"){ ?>
+																<td><?php echo ($offer->price*$offer->quantity) ?></td>
+															<?php }
+															else { ?>
+																<td></td>
+															<?php } ?>
+														</tr>
+													<?php } ?>
+													<?php /*foreach($product->product_offer_array as $offer) { ?>
+														<tr class="extra">
+															<td></td>
+															<td><p><?php echo $offer->name ?></td>
+															<td></td>
+														</tr>
+													<?php } ?>
+													<?php foreach($product->product_extras as $extra) { ?>
+														<tr class="extra">
+															<td></td>
+															<td><p><?php echo $extra->name ?></td>
+															<td><?php echo ($extra->price*$extra->quantity) - $extra->price ?></td>
+														</tr>
+													<?php } ?>
+													<?php foreach($product->product_bundles as $bundle) { ?>
+														<tr class="extra">
+															<td></td>
+															<td><p><?php echo $bundle->name ?></td>
+															<td></td>
+														</tr>
+													<?php } */?>
 	                                            <?php }?>
 	                                            <!--<tr class="">
 	                                                <td class="cross-td custom-spinner">

@@ -115,7 +115,7 @@ class ProductOffer extends DB
 
     public function getProductRealtedOffers($productID)
     {
-        $sql = "select *  from product_offer where product_id = $productID and is_active = 'Active' order by offer_id asc;";
+        $sql = "select *  from product_offer where product_id = '".$productID."' and is_active = 'Active' order by offer_id asc;";
         $data = $this->select($sql);
 
         return $data;

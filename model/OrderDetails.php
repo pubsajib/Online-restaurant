@@ -70,10 +70,11 @@ class OrderDetails extends DB
             return ['status' => 500, 'message' => 'Internal Server error'];
         }
     }
+    
 
     public function getLastInsertedId()
     {
-        $returnData = $this->getMaxId($this->tableName, 'order_id');
+        $returnData = $this->getMaxId($this->tableName, 'orders_details_id');
 
         return $returnData;
     }

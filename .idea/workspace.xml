@@ -1,7 +1,344 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71473a10-c0f0-4d8f-ab00-146bc3c51f0d" name="Default" comment="" />
+    <list default="true" id="71473a10-c0f0-4d8f-ab00-146bc3c51f0d" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/customer/js/custom.js2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510645990_images (3).jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510646177_images (2).png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510646328_images (2).png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510649189_images (3).jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510661952_images (2).jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510662807_ITLlogo_winkanimation_v1.0.2.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510667452_images (1).png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510667479_images (1).png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510667759_images (2).jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510744035_vegan-recipes.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510744248_test.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510744890_test.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1510833419_images (2).jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1511179452_images (3).jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1511179936_beef-category.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1511180184_beef-category03.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/img/products/1511181025_pork-category.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/controller/CustomerController.php-old" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/model/OrderBundleDetail.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/model/OrderExtraDetail.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/model/OrderOfferDetail.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/model/OrderProductVariation.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/view/customer/check_out.php-old" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/custom-style.css" afterPath="$PROJECT_DIR$/assets/admin/custom-style.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/data/flot-data.js" afterPath="$PROJECT_DIR$/assets/admin/data/flot-data.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/data/morris-data.js" afterPath="$PROJECT_DIR$/assets/admin/data/morris-data.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/css/bootstrap-datepicker.css" afterPath="$PROJECT_DIR$/assets/admin/dist/css/bootstrap-datepicker.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/css/bootstrap-datetimepicker.min.css" afterPath="$PROJECT_DIR$/assets/admin/dist/css/bootstrap-datetimepicker.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/css/bootstrap-select.min.css" afterPath="$PROJECT_DIR$/assets/admin/dist/css/bootstrap-select.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/css/sb-admin-2.css" afterPath="$PROJECT_DIR$/assets/admin/dist/css/sb-admin-2.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/css/sb-admin-2.min.css" afterPath="$PROJECT_DIR$/assets/admin/dist/css/sb-admin-2.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-datepicker.min.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-datepicker.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-datetimepicker.min.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-datetimepicker.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-select.min.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-select.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-timepicker.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/bootstrap-timepicker.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/moment.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/moment.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/sb-admin-2.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/sb-admin-2.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/dist/js/sb-admin-2.min.js" afterPath="$PROJECT_DIR$/assets/admin/dist/js/sb-admin-2.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/custom.js" afterPath="$PROJECT_DIR$/assets/admin/js/custom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/custom_back.js" afterPath="$PROJECT_DIR$/assets/admin/js/custom_back.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/js/sb-admin-2.js" afterPath="$PROJECT_DIR$/assets/admin/js/sb-admin-2.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/bootstrap-social/bootstrap-social.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/bootstrap-social/bootstrap-social.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/css/bootstrap.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/css/bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/css/bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/fonts/glyphicons-halflings-regular.svg" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/js/bootstrap.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/js/bootstrap.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/bootstrap/js/bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/index.html" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables-plugins/index.html" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables-responsive/dataTables.responsive.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables-responsive/dataTables.responsive.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables-responsive/dataTables.responsive.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables-responsive/dataTables.responsive.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap4.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap4.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap4.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.bootstrap4.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.foundation.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.foundation.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.foundation.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.foundation.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.jqueryui.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.jqueryui.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.jqueryui.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.jqueryui.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.material.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.material.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.material.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.material.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.semanticui.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.semanticui.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.semanticui.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.semanticui.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.uikit.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.uikit.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.uikit.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/dataTables.uikit.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/jquery.dataTables.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/jquery.dataTables.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/jquery.dataTables.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/jquery.dataTables.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/jquery.dataTables_themeroller.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/css/jquery.dataTables_themeroller.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap4.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap4.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap4.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.bootstrap4.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.foundation.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.foundation.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.foundation.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.foundation.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.jqueryui.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.jqueryui.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.jqueryui.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.jqueryui.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.material.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.material.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.material.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.material.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.semanticui.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.semanticui.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.semanticui.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.semanticui.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.uikit.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.uikit.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.uikit.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/dataTables.uikit.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/jquery.dataTables.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/jquery.dataTables.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/jquery.dataTables.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/jquery.dataTables.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/jquery.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/datatables/js/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot-tooltip/jquery.flot.tooltip.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot-tooltip/jquery.flot.tooltip.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot-tooltip/jquery.flot.tooltip.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot-tooltip/jquery.flot.tooltip.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot-tooltip/jquery.flot.tooltip.source.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot-tooltip/jquery.flot.tooltip.source.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/excanvas.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/excanvas.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.colorhelpers.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.colorhelpers.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.canvas.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.canvas.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.categories.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.categories.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.crosshair.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.crosshair.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.errorbars.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.errorbars.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.fillbetween.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.fillbetween.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.image.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.image.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.navigate.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.navigate.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.pie.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.pie.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.resize.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.resize.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.selection.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.selection.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.stack.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.stack.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.symbol.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.symbol.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.threshold.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.threshold.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.time.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.flot.time.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/flot/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/HELP-US-OUT.txt" afterPath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/HELP-US-OUT.txt" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/css/font-awesome.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/css/font-awesome.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/assets/admin/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/jquery/jquery.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/jquery/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/jquery/jquery.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/jquery/jquery.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.min.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/metisMenu/metisMenu.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/morrisjs/morris.css" afterPath="$PROJECT_DIR$/assets/admin/vendor/morrisjs/morris.css" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/morrisjs/morris.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/morrisjs/morris.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/morrisjs/morris.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/morrisjs/morris.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/raphael/raphael.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/raphael/raphael.js" />
+      <change beforePath="$PROJECT_DIR$/assets/admin/vendor/raphael/raphael.min.js" afterPath="$PROJECT_DIR$/assets/admin/vendor/raphael/raphael.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/awesome-check.css" afterPath="$PROJECT_DIR$/assets/customer/css/awesome-check.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/assets/customer/css/bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/flaticon.css" afterPath="$PROJECT_DIR$/assets/customer/css/flaticon.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/assets/customer/css/font-awesome.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/jquery-ui.css" afterPath="$PROJECT_DIR$/assets/customer/css/jquery-ui.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/jquery.realperson.css" afterPath="$PROJECT_DIR$/assets/customer/css/jquery.realperson.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/login.css" afterPath="$PROJECT_DIR$/assets/customer/css/login.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/pretty-check.css" afterPath="$PROJECT_DIR$/assets/customer/css/pretty-check.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/responsive.css" afterPath="$PROJECT_DIR$/assets/customer/css/responsive.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/css/style.css" afterPath="$PROJECT_DIR$/assets/customer/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/fonts/Flaticon.svg" afterPath="$PROJECT_DIR$/assets/customer/fonts/Flaticon.svg" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/fonts/flaticon.html" afterPath="$PROJECT_DIR$/assets/customer/fonts/flaticon.html" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/assets/customer/fonts/fontawesome-webfont.svg" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/img/footer-logo.png" afterPath="$PROJECT_DIR$/assets/customer/img/footer-logo.png" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/01_jquery.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/01_jquery.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/02_bootstrap.min.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/02_bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/03_slick.min.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/03_slick.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/04_masonry.min.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/04_masonry.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/05_masonry.filter.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/05_masonry.filter.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/06_jquery.appear.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/06_jquery.appear.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/07_jquery.easing.min.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/07_jquery.easing.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/08_jquery.parallax.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/08_jquery.parallax.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/_source/09_jquery.fancybox.js" afterPath="$PROJECT_DIR$/assets/customer/js/_source/09_jquery.fancybox.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/autotable.js" afterPath="$PROJECT_DIR$/assets/customer/js/autotable.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/custom.js" afterPath="$PROJECT_DIR$/assets/customer/js/custom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/custom.js-old" afterPath="$PROJECT_DIR$/assets/customer/js/custom.js-old" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/egprojets.custom.js" afterPath="$PROJECT_DIR$/assets/customer/js/egprojets.custom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/egprojets.lib.js" afterPath="$PROJECT_DIR$/assets/customer/js/egprojets.lib.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/html5shiv.js" afterPath="$PROJECT_DIR$/assets/customer/js/html5shiv.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/jquery-ui.min.js" afterPath="$PROJECT_DIR$/assets/customer/js/jquery-ui.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/jquery.plugin.js" afterPath="$PROJECT_DIR$/assets/customer/js/jquery.plugin.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/jquery.realperson.js" afterPath="$PROJECT_DIR$/assets/customer/js/jquery.realperson.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/jquery.tabletoCSV.js" afterPath="$PROJECT_DIR$/assets/customer/js/jquery.tabletoCSV.js" />
+      <change beforePath="$PROJECT_DIR$/assets/customer/js/jspdf.debug.js" afterPath="$PROJECT_DIR$/assets/customer/js/jspdf.debug.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/.editorconfig" afterPath="$PROJECT_DIR$/assets/sweetalert-master/.editorconfig" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/.gitignore" afterPath="$PROJECT_DIR$/assets/sweetalert-master/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/.jshintrc" afterPath="$PROJECT_DIR$/assets/sweetalert-master/.jshintrc" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/.travis.yml" afterPath="$PROJECT_DIR$/assets/sweetalert-master/.travis.yml" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/LICENSE" afterPath="$PROJECT_DIR$/assets/sweetalert-master/LICENSE" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/gulpfile-wrap-template.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/gulpfile-wrap-template.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/ie9.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/ie9.css" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/loader-animation.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/loader-animation.css" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/default-params.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/default-params.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-click.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-click.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-dom.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-dom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-key.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-key.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-swal-dom.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/handle-swal-dom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/injected-html.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/injected-html.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/set-params.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/set-params.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/utils.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/modules/utils.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dev/sweetalert.es6.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dev/sweetalert.es6.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dist/sweetalert-dev.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dist/sweetalert-dev.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/dist/sweetalert.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/dist/sweetalert.css" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/example/example.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/example/example.css" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/example/images/te-logo-small.svg" afterPath="$PROJECT_DIR$/assets/sweetalert-master/example/images/te-logo-small.svg" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/gulpfile.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/gulpfile.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/index.html" afterPath="$PROJECT_DIR$/assets/sweetalert-master/index.html" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/default-params.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/default-params.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-click.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-click.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-dom.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-dom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-key.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-key.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-swal-dom.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/handle-swal-dom.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/injected-html.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/injected-html.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/set-params.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/set-params.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/utils.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/modules/utils.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/lib/sweetalert.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/lib/sweetalert.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/test/index.html" afterPath="$PROJECT_DIR$/assets/sweetalert-master/test/index.html" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/test/tests.js" afterPath="$PROJECT_DIR$/assets/sweetalert-master/test/tests.js" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/themes/facebook/facebook.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/themes/facebook/facebook.css" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/themes/google/google.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/themes/google/google.css" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert-master/themes/twitter/twitter.css" afterPath="$PROJECT_DIR$/assets/sweetalert-master/themes/twitter/twitter.css" />
+      <change beforePath="$PROJECT_DIR$/controller/AboutUsController.php" afterPath="$PROJECT_DIR$/controller/AboutUsController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/AuthenticationController.php" afterPath="$PROJECT_DIR$/controller/AuthenticationController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/BannerController.php" afterPath="$PROJECT_DIR$/controller/BannerController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/BaseController.php" afterPath="$PROJECT_DIR$/controller/BaseController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/CategoryController.php" afterPath="$PROJECT_DIR$/controller/CategoryController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/CommonController.php" afterPath="$PROJECT_DIR$/controller/CommonController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/ContactUsController.php" afterPath="$PROJECT_DIR$/controller/ContactUsController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/CustomerController.php" afterPath="$PROJECT_DIR$/controller/CustomerController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/DeliveryChargeController.php" afterPath="$PROJECT_DIR$/controller/DeliveryChargeController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/DeliveryCollectionController.php" afterPath="$PROJECT_DIR$/controller/DeliveryCollectionController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/DeliveryTimeController.php" afterPath="$PROJECT_DIR$/controller/DeliveryTimeController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/DiscountController.php" afterPath="$PROJECT_DIR$/controller/DiscountController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/HomeController.php" afterPath="$PROJECT_DIR$/controller/HomeController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/OpeningHourController.php" afterPath="$PROJECT_DIR$/controller/OpeningHourController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/OrderController.php" afterPath="$PROJECT_DIR$/controller/OrderController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/PaymentOptionController.php" afterPath="$PROJECT_DIR$/controller/PaymentOptionController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/PostcodeController.php" afterPath="$PROJECT_DIR$/controller/PostcodeController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/ProductController.php" afterPath="$PROJECT_DIR$/controller/ProductController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/SettingsController.php" afterPath="$PROJECT_DIR$/controller/SettingsController.php" />
+      <change beforePath="$PROJECT_DIR$/controller/VariationController.php" afterPath="$PROJECT_DIR$/controller/VariationController.php" />
+      <change beforePath="$PROJECT_DIR$/error_log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/model/AboutUs.php" afterPath="$PROJECT_DIR$/model/AboutUs.php" />
+      <change beforePath="$PROJECT_DIR$/model/Address.php" afterPath="$PROJECT_DIR$/model/Address.php" />
+      <change beforePath="$PROJECT_DIR$/model/Banner.php" afterPath="$PROJECT_DIR$/model/Banner.php" />
+      <change beforePath="$PROJECT_DIR$/model/BaseModel.php" afterPath="$PROJECT_DIR$/model/BaseModel.php" />
+      <change beforePath="$PROJECT_DIR$/model/Category.php" afterPath="$PROJECT_DIR$/model/Category.php" />
+      <change beforePath="$PROJECT_DIR$/model/Contact.php" afterPath="$PROJECT_DIR$/model/Contact.php" />
+      <change beforePath="$PROJECT_DIR$/model/Customer.php" afterPath="$PROJECT_DIR$/model/Customer.php" />
+      <change beforePath="$PROJECT_DIR$/model/DB.php" afterPath="$PROJECT_DIR$/model/DB.php" />
+      <change beforePath="$PROJECT_DIR$/model/DeliveryCollection.php" afterPath="$PROJECT_DIR$/model/DeliveryCollection.php" />
+      <change beforePath="$PROJECT_DIR$/model/DeliveryTime.php" afterPath="$PROJECT_DIR$/model/DeliveryTime.php" />
+      <change beforePath="$PROJECT_DIR$/model/Discount.php" afterPath="$PROJECT_DIR$/model/Discount.php" />
+      <change beforePath="$PROJECT_DIR$/model/Offer.php" afterPath="$PROJECT_DIR$/model/Offer.php" />
+      <change beforePath="$PROJECT_DIR$/model/OpeningHour.php" afterPath="$PROJECT_DIR$/model/OpeningHour.php" />
+      <change beforePath="$PROJECT_DIR$/model/Order.php" afterPath="$PROJECT_DIR$/model/Order.php" />
+      <change beforePath="$PROJECT_DIR$/model/OrderDetails.php" afterPath="$PROJECT_DIR$/model/OrderDetails.php" />
+      <change beforePath="$PROJECT_DIR$/model/OrderProcessType.php" afterPath="$PROJECT_DIR$/model/OrderProcessType.php" />
+      <change beforePath="$PROJECT_DIR$/model/Page.php" afterPath="$PROJECT_DIR$/model/Page.php" />
+      <change beforePath="$PROJECT_DIR$/model/Payment.php" afterPath="$PROJECT_DIR$/model/Payment.php" />
+      <change beforePath="$PROJECT_DIR$/model/PaymentOption.php" afterPath="$PROJECT_DIR$/model/PaymentOption.php" />
+      <change beforePath="$PROJECT_DIR$/model/PaymentType.php" afterPath="$PROJECT_DIR$/model/PaymentType.php" />
+      <change beforePath="$PROJECT_DIR$/model/Postcode.php" afterPath="$PROJECT_DIR$/model/Postcode.php" />
+      <change beforePath="$PROJECT_DIR$/model/Product.php" afterPath="$PROJECT_DIR$/model/Product.php" />
+      <change beforePath="$PROJECT_DIR$/model/ProductBundle.php" afterPath="$PROJECT_DIR$/model/ProductBundle.php" />
+      <change beforePath="$PROJECT_DIR$/model/ProductExtra.php" afterPath="$PROJECT_DIR$/model/ProductExtra.php" />
+      <change beforePath="$PROJECT_DIR$/model/ProductOffer.php" afterPath="$PROJECT_DIR$/model/ProductOffer.php" />
+      <change beforePath="$PROJECT_DIR$/model/ProductVariation.php" afterPath="$PROJECT_DIR$/model/ProductVariation.php" />
+      <change beforePath="$PROJECT_DIR$/model/Settings.php" afterPath="$PROJECT_DIR$/model/Settings.php" />
+      <change beforePath="$PROJECT_DIR$/model/SubProduct.php" afterPath="$PROJECT_DIR$/model/SubProduct.php" />
+      <change beforePath="$PROJECT_DIR$/model/User.php" afterPath="$PROJECT_DIR$/model/User.php" />
+      <change beforePath="$PROJECT_DIR$/model/Variation.php" afterPath="$PROJECT_DIR$/model/Variation.php" />
+      <change beforePath="$PROJECT_DIR$/online_restaurant.zip" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/order-print.txt" afterPath="$PROJECT_DIR$/order-print.txt" />
+      <change beforePath="$PROJECT_DIR$/route.php" afterPath="$PROJECT_DIR$/route.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/about_us.php" afterPath="$PROJECT_DIR$/view/admin/about_us.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/banner.php" afterPath="$PROJECT_DIR$/view/admin/banner.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/banner_info.php" afterPath="$PROJECT_DIR$/view/admin/banner_info.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/category.php" afterPath="$PROJECT_DIR$/view/admin/category.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/contact_us.php" afterPath="$PROJECT_DIR$/view/admin/contact_us.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/customer_info.php" afterPath="$PROJECT_DIR$/view/admin/customer_info.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/delivery_charge.php" afterPath="$PROJECT_DIR$/view/admin/delivery_charge.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/delivery_collection.php" afterPath="$PROJECT_DIR$/view/admin/delivery_collection.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/delivery_minimum.php" afterPath="$PROJECT_DIR$/view/admin/delivery_minimum.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/delivery_time.php" afterPath="$PROJECT_DIR$/view/admin/delivery_time.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/discount_info.php" afterPath="$PROJECT_DIR$/view/admin/discount_info.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/home.php" afterPath="$PROJECT_DIR$/view/admin/home.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/login.php" afterPath="$PROJECT_DIR$/view/admin/login.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/opening_closing_time.php" afterPath="$PROJECT_DIR$/view/admin/opening_closing_time.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/order_report.php" afterPath="$PROJECT_DIR$/view/admin/order_report.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/allowed_post.php" afterPath="$PROJECT_DIR$/view/admin/pages/allowed_post.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/blank.html" afterPath="$PROJECT_DIR$/view/admin/pages/blank.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/buttons.html" afterPath="$PROJECT_DIR$/view/admin/pages/buttons.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/categories.php" afterPath="$PROJECT_DIR$/view/admin/pages/categories.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/completed_order.php" afterPath="$PROJECT_DIR$/view/admin/pages/completed_order.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/customer_info.php" afterPath="$PROJECT_DIR$/view/admin/pages/customer_info.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/flot.html" afterPath="$PROJECT_DIR$/view/admin/pages/flot.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/forms.html" afterPath="$PROJECT_DIR$/view/admin/pages/forms.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/grid.html" afterPath="$PROJECT_DIR$/view/admin/pages/grid.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/help_support.php" afterPath="$PROJECT_DIR$/view/admin/pages/help_support.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/icons.html" afterPath="$PROJECT_DIR$/view/admin/pages/icons.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/index.php" afterPath="$PROJECT_DIR$/view/admin/pages/index.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/items.php" afterPath="$PROJECT_DIR$/view/admin/pages/items.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/blank.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/blank.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/buttons.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/buttons.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/flot.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/flot.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/forms.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/forms.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/grid.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/grid.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/icons.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/icons.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/morris.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/morris.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/notifications.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/notifications.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/panels-wells.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/panels-wells.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/tables.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/tables.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/layout/typography.html" afterPath="$PROJECT_DIR$/view/admin/pages/layout/typography.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/log_act.php" afterPath="$PROJECT_DIR$/view/admin/pages/log_act.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/login.php" afterPath="$PROJECT_DIR$/view/admin/pages/login.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/logout.php" afterPath="$PROJECT_DIR$/view/admin/pages/logout.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/morris.html" afterPath="$PROJECT_DIR$/view/admin/pages/morris.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/notice_board.php" afterPath="$PROJECT_DIR$/view/admin/pages/notice_board.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/notifications.html" afterPath="$PROJECT_DIR$/view/admin/pages/notifications.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/offer_discount.php" afterPath="$PROJECT_DIR$/view/admin/pages/offer_discount.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/opening_closing.php" afterPath="$PROJECT_DIR$/view/admin/pages/opening_closing.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/panels-wells.html" afterPath="$PROJECT_DIR$/view/admin/pages/panels-wells.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/pending_order.php" afterPath="$PROJECT_DIR$/view/admin/pages/pending_order.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/profile.php" afterPath="$PROJECT_DIR$/view/admin/pages/profile.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/sales_report.php" afterPath="$PROJECT_DIR$/view/admin/pages/sales_report.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/tables.html" afterPath="$PROJECT_DIR$/view/admin/pages/tables.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/typography.html" afterPath="$PROJECT_DIR$/view/admin/pages/typography.html" />
+      <change beforePath="$PROJECT_DIR$/view/admin/pages/user_config.php" afterPath="$PROJECT_DIR$/view/admin/pages/user_config.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/partial_products.php" afterPath="$PROJECT_DIR$/view/admin/partial_products.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/payment_option.php" afterPath="$PROJECT_DIR$/view/admin/payment_option.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/post_code.php" afterPath="$PROJECT_DIR$/view/admin/post_code.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/products.php" afterPath="$PROJECT_DIR$/view/admin/products.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/products_back.php" afterPath="$PROJECT_DIR$/view/admin/products_back.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/register.php" afterPath="$PROJECT_DIR$/view/admin/register.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/sub_products.php" afterPath="$PROJECT_DIR$/view/admin/sub_products.php" />
+      <change beforePath="$PROJECT_DIR$/view/admin/variation.php" afterPath="$PROJECT_DIR$/view/admin/variation.php" />
+      <change beforePath="$PROJECT_DIR$/view/base/admin/footer.php" afterPath="$PROJECT_DIR$/view/base/admin/footer.php" />
+      <change beforePath="$PROJECT_DIR$/view/base/admin/header.php" afterPath="$PROJECT_DIR$/view/base/admin/header.php" />
+      <change beforePath="$PROJECT_DIR$/view/base/admin/header_old.php" afterPath="$PROJECT_DIR$/view/base/admin/header_old.php" />
+      <change beforePath="$PROJECT_DIR$/view/base/customer/footer.php" afterPath="$PROJECT_DIR$/view/base/customer/footer.php" />
+      <change beforePath="$PROJECT_DIR$/view/base/customer/header.php" afterPath="$PROJECT_DIR$/view/base/customer/header.php" />
+      <change beforePath="$PROJECT_DIR$/view/base/customer/pre_footer.php" afterPath="$PROJECT_DIR$/view/base/customer/pre_footer.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/about_us.php" afterPath="$PROJECT_DIR$/view/customer/about_us.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/change_address.php" afterPath="$PROJECT_DIR$/view/customer/change_address.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/change_password.php" afterPath="$PROJECT_DIR$/view/customer/change_password.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/check_out.php" afterPath="$PROJECT_DIR$/view/customer/check_out.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/contact_us.php" afterPath="$PROJECT_DIR$/view/customer/contact_us.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/delivery_address.php" afterPath="$PROJECT_DIR$/view/customer/delivery_address.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/forget_password.php" afterPath="$PROJECT_DIR$/view/customer/forget_password.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/index.php" afterPath="$PROJECT_DIR$/view/customer/index.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/login.php" afterPath="$PROJECT_DIR$/view/customer/login.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/messages.php" afterPath="$PROJECT_DIR$/view/customer/messages.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/order.php" afterPath="$PROJECT_DIR$/view/customer/order.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/order_history.php" afterPath="$PROJECT_DIR$/view/customer/order_history.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/paypal_form.php" afterPath="$PROJECT_DIR$/view/customer/paypal_form.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/profile.php" afterPath="$PROJECT_DIR$/view/customer/profile.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/register.php" afterPath="$PROJECT_DIR$/view/customer/register.php" />
+      <change beforePath="$PROJECT_DIR$/view/customer/reset_password.php" afterPath="$PROJECT_DIR$/view/customer/reset_password.php" />
+      <change beforePath="$PROJECT_DIR$/view/new_view.php" afterPath="$PROJECT_DIR$/view/new_view.php" />
+    </list>
     <ignored path="online_restaurant.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -12,195 +349,20 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="online_restaurant" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/base/admin/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2130">
-              <caret line="142" column="75" selection-start-line="142" selection-start-column="61" selection-end-line="142" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/customer/order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2700">
-              <caret line="180" column="90" selection-start-line="180" selection-start-column="90" selection-end-line="180" selection-end-column="90" />
-              <folding>
-                <marker date="1506680693614" expanded="true" signature="14012:14165" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="14413:15562" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="19793:20284" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="21626:22023" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="23044:23172" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="25196:25530" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="25730:26117" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="28414:28628" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="28714:28930" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="30436:30635" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="32836:33267" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="35817:36103" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="36252:36591" ph="..." />
-                <marker date="1506680693614" expanded="true" signature="42830:42850" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controller/CustomerController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1215" column="52" selection-start-line="1215" selection-start-column="52" selection-end-line="1215" selection-end-column="52" />
-              <folding>
-                <marker date="1506429929608" expanded="true" signature="1428:1601" ph="select *, of... offer" />
-                <marker date="1506429929608" expanded="true" signature="2701:2874" ph="select *, of... offer" />
-                <marker date="1506429929608" expanded="true" signature="2991:3113" ph="select * fro... products" />
-                <marker date="1506429929608" expanded="true" signature="2991:3164" ph="select * fro... products" />
-                <marker date="1506429929608" expanded="true" signature="3306:3409" ph="select * fro... categories" />
-                <marker date="1506429929608" expanded="true" signature="3635:3761" ph="select * fro... sub_products" />
-                <marker date="1506429929608" expanded="true" signature="43988:44234" ph="SELECT O.*, orders" />
-                <marker date="1506429929608" expanded="true" signature="49067:49222" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49224:55170" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49275:49365" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49367:55170" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49421:49520" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49522:49715" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49625:49686" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49748:49870" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49966:49970" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="49970:54524" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50011:50186" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50188:54497" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50224:54464" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50261:50759" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50325:50470" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50538:50683" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50803:50807" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50807:51324" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="50871:51016" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="51097:51242" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="51361:51836" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="51425:51570" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="51632:51777" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="51873:52354" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="51937:52082" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="52147:52292" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="52391:52882" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="52457:52602" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="52670:52815" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="52919:53396" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="52983:53128" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="53191:53336" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="53433:53910" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="53497:53642" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="53705:53850" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="53951:54427" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54015:54160" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54224:54369" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54598:54602" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54602:55170" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54643:54723" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54725:55170" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54758:55141" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54817:54859" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="54915:54957" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55035:55095" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55294:55355" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55419:55461" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55535:55595" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55598:55605" ph="£" />
-                <marker date="1506429929608" expanded="true" signature="55820:58156" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55876:55976" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="55978:58125" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56018:58088" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56059:56420" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56113:56191" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56276:56354" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56357:56364" ph="£" />
-                <marker date="1506429929608" expanded="true" signature="56461:56834" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56515:56593" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56684:56762" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56765:56772" ph="£" />
-                <marker date="1506429929608" expanded="true" signature="56875:57252" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="56929:57007" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57098:57176" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57179:57186" ph="£" />
-                <marker date="1506429929608" expanded="true" signature="57293:57653" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57347:57425" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57509:57587" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57591:57598" ph="£" />
-                <marker date="1506429929608" expanded="true" signature="57694:58047" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57748:57826" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57907:57985" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="57988:57995" ph="£" />
-                <marker date="1506429929608" expanded="true" signature="58240:58277" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58279:59208" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58324:58499" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58501:59177" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58541:59140" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58582:59062" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58650:58795" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="58862:59007" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="59295:59312" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="59314:59626" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="64183:64582" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="64252:64558" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="64277:64344" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="64369:64438" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="64463:64533" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="69439:69491" ph="select * fro... address" />
-                <marker date="1506429929608" expanded="true" signature="74466:74621" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="74623:77632" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="74688:74778" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="74780:77607" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="74838:74937" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="74939:75140" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75046:75107" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75204:75243" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75245:77580" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75288:75385" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75387:77549" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75432:75449" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75581:75633" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75708:75742" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="75744:76712" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="76774:76786" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="76849:76861" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="76929:76941" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="77020:77079" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="77163:77203" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="77205:77497" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="77256:77300" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="77407:77411" ph="..." />
-                <marker date="1506429929608" expanded="true" signature="81817:81842" ph="SELECT * FRO... customers" />
-                <marker date="1506429929608" expanded="true" signature="81868:81893" ph="SELECT * FRO... customers" />
-                <marker date="1506429929608" expanded="true" signature="81919:81970" ph="SELECT count... customers" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/BaseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2250">
-              <caret line="155" column="23" selection-start-line="155" selection-start-column="23" selection-end-line="155" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -251,22 +413,18 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1301" />
-    <option name="height" value="744" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+    </include_path>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -283,26 +441,39 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="online_restaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="online_restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="online_restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cure_sinus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/.nvm/versions/node/v4.6.0/bin/node" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -320,15 +491,6 @@
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -351,9 +513,20 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -394,34 +567,39 @@
       <workItem from="1506677949334" duration="4658000" />
       <workItem from="1506920806341" duration="815000" />
       <workItem from="1506921927117" duration="13000" />
+      <workItem from="1512982065508" duration="445000" />
+      <workItem from="1519986730349" duration="75000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204926000" />
+    <option name="totallyTimeSpent" value="205446000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22136818" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2203514" sideWeight="0.4942717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22087745" sideWeight="0.5057283" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -444,500 +622,345 @@
     <entry file="file://$PROJECT_DIR$/view/customer/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
+          <caret line="90" column="36" lean-forward="false" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Customer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="362">
-          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/AuthenticationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="50" column="10" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
+          <caret line="50" column="10" lean-forward="false" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mailTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="56" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
+          <caret line="1" column="56" lean-forward="false" selection-start-line="1" selection-start-column="56" selection-end-line="1" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/contact_us.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1875">
-          <caret line="125" column="8" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
+          <caret line="125" column="8" lean-forward="false" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/change_address.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
-          <caret line="42" column="78" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="78" />
+          <caret line="42" column="78" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/profile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
-          <caret line="42" column="78" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="78" />
+          <caret line="42" column="78" lean-forward="false" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/DB.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/BaseModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1830">
-          <caret line="127" column="26" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
+          <caret line="127" column="26" lean-forward="false" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Api/Payment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
-          <caret line="554" column="21" selection-start-line="554" selection-start-column="21" selection-end-line="554" selection-end-column="21" />
+          <caret line="554" column="21" lean-forward="false" selection-start-line="554" selection-start-column="21" selection-end-line="554" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/tests/PayPal/Test/Api/PaymentTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
-          <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
+          <caret line="106" column="24" lean-forward="false" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date_c.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="443" column="27" selection-start-line="443" selection-start-column="27" selection-end-line="443" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date_c.php" />
     <entry file="file://$PROJECT_DIR$/assets/admin/js/custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
-          <caret line="47" column="59" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
+          <caret line="47" column="59" lean-forward="false" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/error_log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/error_log" />
     <entry file="file://$PROJECT_DIR$/view/admin/opening_closing_time.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35325">
-          <caret line="2355" column="29" selection-start-line="2355" selection-start-column="29" selection-end-line="2355" selection-end-column="29" />
+          <caret line="2355" column="29" lean-forward="false" selection-start-line="2355" selection-start-column="29" selection-end-line="2355" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/OpeningHourController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/new_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/contact_us.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
-          <caret line="27" column="32" selection-start-line="0" selection-start-column="0" selection-end-line="250" selection-end-column="9" />
+          <caret line="27" column="32" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="250" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ContactUsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="24" column="38" selection-start-line="0" selection-start-column="0" selection-end-line="107" selection-end-column="1" />
+          <caret line="24" column="38" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="107" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Contact.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="18" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
+          <caret line="18" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Discount.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/DiscountController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+          <caret line="26" column="40" lean-forward="false" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/discount_info.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/delivery_time.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+          <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/base/customer/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/paypal/rest-api-sdk-php/lib/PayPal/Core/PayPalConstants.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="31" />
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/order_report.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="237" column="83" selection-start-line="237" selection-start-column="83" selection-end-line="237" selection-end-column="83" />
+          <caret line="237" column="83" lean-forward="false" selection-start-line="237" selection-start-column="83" selection-end-line="237" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="74" column="44" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
+          <caret line="74" column="44" lean-forward="false" selection-start-line="74" selection-start-column="44" selection-end-line="74" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="455">
-          <caret line="252" column="19" selection-start-line="252" selection-start-column="19" selection-end-line="252" selection-end-column="19" />
+          <caret line="252" column="19" lean-forward="false" selection-start-line="252" selection-start-column="19" selection-end-line="252" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
-          <caret line="53" column="75" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
+          <caret line="53" column="75" lean-forward="false" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/messages.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
-          <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+          <caret line="42" column="65" lean-forward="false" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
-          <caret line="320" column="135" selection-start-line="320" selection-start-column="135" selection-end-line="320" selection-end-column="135" />
+          <caret line="320" column="135" lean-forward="false" selection-start-line="320" selection-start-column="135" selection-end-line="320" selection-end-column="135" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/order_history.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
-          <caret line="250" column="105" selection-start-line="250" selection-start-column="105" selection-end-line="250" selection-end-column="105" />
+          <caret line="250" column="105" lean-forward="false" selection-start-line="250" selection-start-column="105" selection-end-line="250" selection-end-column="105" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/base/customer/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
-          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+          <caret line="65" column="12" lean-forward="false" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/base/customer/pre_footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1305">
-          <caret line="87" column="72" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="72" />
+          <caret line="87" column="72" lean-forward="false" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="72" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/customer/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51225">
-          <caret line="3415" column="18" selection-start-line="3415" selection-start-column="18" selection-end-line="3415" selection-end-column="18" />
+          <caret line="3415" column="18" lean-forward="false" selection-start-line="3415" selection-start-column="18" selection-end-line="3415" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <caret line="23" column="38" lean-forward="false" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/paypal_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+          <caret line="13" column="57" lean-forward="false" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/Product.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="45" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="1" />
+          <caret line="15" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="125" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/products.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="1163" column="60" selection-start-line="1163" selection-start-column="60" selection-end-line="1163" selection-end-column="60" />
+          <caret line="1163" column="60" lean-forward="false" selection-start-line="1163" selection-start-column="60" selection-end-line="1163" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/SubProduct.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1515">
-          <caret line="101" column="26" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="26" />
+          <caret line="101" column="26" lean-forward="false" selection-start-line="101" selection-start-column="20" selection-end-line="101" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/sub_products.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15165">
-          <caret line="1011" column="50" selection-start-line="1011" selection-start-column="50" selection-end-line="1011" selection-end-column="50" />
+          <caret line="1011" column="50" lean-forward="false" selection-start-line="1011" selection-start-column="50" selection-end-line="1011" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/customer/check_out.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6060">
-          <caret line="404" column="129" selection-start-line="404" selection-start-column="129" selection-end-line="404" selection-end-column="129" />
+          <caret line="404" column="129" lean-forward="false" selection-start-line="404" selection-start-column="129" selection-end-line="404" selection-end-column="129" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5370">
-          <caret line="361" column="74" selection-start-line="361" selection-start-column="12" selection-end-line="361" selection-end-column="74" />
+          <caret line="361" column="74" lean-forward="false" selection-start-line="361" selection-start-column="12" selection-end-line="361" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/OrderController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="485" column="33" selection-start-line="485" selection-start-column="33" selection-end-line="485" selection-end-column="33" />
+          <caret line="485" column="33" lean-forward="false" selection-start-line="485" selection-start-column="33" selection-end-line="485" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/route.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="375" column="21" selection-start-line="375" selection-start-column="21" selection-end-line="375" selection-end-column="21" />
+          <caret line="375" column="21" lean-forward="false" selection-start-line="375" selection-start-column="21" selection-end-line="375" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order-print.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/base/admin/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2130">
-          <caret line="142" column="75" selection-start-line="142" selection-start-column="61" selection-end-line="142" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/customer/order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2700">
-          <caret line="180" column="90" selection-start-line="180" selection-start-column="90" selection-end-line="180" selection-end-column="90" />
-          <folding>
-            <marker date="1506680693614" expanded="true" signature="14012:14165" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="14413:15562" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="19793:20284" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="21626:22023" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="23044:23172" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="25196:25530" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="25730:26117" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="28414:28628" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="28714:28930" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="30436:30635" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="32836:33267" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="35817:36103" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="36252:36591" ph="..." />
-            <marker date="1506680693614" expanded="true" signature="42830:42850" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2250">
-          <caret line="155" column="23" selection-start-line="155" selection-start-column="23" selection-end-line="155" selection-end-column="23" />
-          <folding />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/CustomerController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1215" column="52" selection-start-line="1215" selection-start-column="52" selection-end-line="1215" selection-end-column="52" />
-          <folding>
-            <marker date="1506429929608" expanded="true" signature="1428:1601" ph="select *, of... offer" />
-            <marker date="1506429929608" expanded="true" signature="2701:2874" ph="select *, of... offer" />
-            <marker date="1506429929608" expanded="true" signature="2991:3113" ph="select * fro... products" />
-            <marker date="1506429929608" expanded="true" signature="2991:3164" ph="select * fro... products" />
-            <marker date="1506429929608" expanded="true" signature="3306:3409" ph="select * fro... categories" />
-            <marker date="1506429929608" expanded="true" signature="3635:3761" ph="select * fro... sub_products" />
-            <marker date="1506429929608" expanded="true" signature="43988:44234" ph="SELECT O.*, orders" />
-            <marker date="1506429929608" expanded="true" signature="49067:49222" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49224:55170" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49275:49365" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49367:55170" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49421:49520" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49522:49715" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49625:49686" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49748:49870" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49966:49970" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="49970:54524" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50011:50186" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50188:54497" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50224:54464" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50261:50759" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50325:50470" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50538:50683" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50803:50807" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50807:51324" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="50871:51016" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="51097:51242" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="51361:51836" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="51425:51570" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="51632:51777" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="51873:52354" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="51937:52082" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="52147:52292" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="52391:52882" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="52457:52602" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="52670:52815" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="52919:53396" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="52983:53128" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="53191:53336" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="53433:53910" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="53497:53642" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="53705:53850" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="53951:54427" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54015:54160" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54224:54369" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54598:54602" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54602:55170" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54643:54723" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54725:55170" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54758:55141" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54817:54859" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="54915:54957" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55035:55095" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55294:55355" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55419:55461" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55535:55595" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55598:55605" ph="£" />
-            <marker date="1506429929608" expanded="true" signature="55820:58156" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55876:55976" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="55978:58125" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56018:58088" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56059:56420" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56113:56191" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56276:56354" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56357:56364" ph="£" />
-            <marker date="1506429929608" expanded="true" signature="56461:56834" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56515:56593" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56684:56762" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56765:56772" ph="£" />
-            <marker date="1506429929608" expanded="true" signature="56875:57252" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="56929:57007" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57098:57176" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57179:57186" ph="£" />
-            <marker date="1506429929608" expanded="true" signature="57293:57653" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57347:57425" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57509:57587" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57591:57598" ph="£" />
-            <marker date="1506429929608" expanded="true" signature="57694:58047" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57748:57826" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57907:57985" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="57988:57995" ph="£" />
-            <marker date="1506429929608" expanded="true" signature="58240:58277" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58279:59208" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58324:58499" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58501:59177" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58541:59140" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58582:59062" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58650:58795" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="58862:59007" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="59295:59312" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="59314:59626" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="64183:64582" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="64252:64558" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="64277:64344" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="64369:64438" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="64463:64533" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="69439:69491" ph="select * fro... address" />
-            <marker date="1506429929608" expanded="true" signature="74466:74621" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="74623:77632" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="74688:74778" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="74780:77607" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="74838:74937" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="74939:75140" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75046:75107" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75204:75243" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75245:77580" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75288:75385" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75387:77549" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75432:75449" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75581:75633" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75708:75742" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="75744:76712" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="76774:76786" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="76849:76861" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="76929:76941" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="77020:77079" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="77163:77203" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="77205:77497" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="77256:77300" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="77407:77411" ph="..." />
-            <marker date="1506429929608" expanded="true" signature="81817:81842" ph="SELECT * FRO... customers" />
-            <marker date="1506429929608" expanded="true" signature="81868:81893" ph="SELECT * FRO... customers" />
-            <marker date="1506429929608" expanded="true" signature="81919:81970" ph="SELECT count... customers" />
-          </folding>
+        <state relative-caret-position="21">
+          <caret line="1215" column="38" lean-forward="false" selection-start-line="1215" selection-start-column="38" selection-end-line="1215" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/customer/order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="180" column="90" lean-forward="false" selection-start-line="180" selection-start-column="90" selection-end-line="180" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/base/admin/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="142" column="75" lean-forward="false" selection-start-line="142" selection-start-column="61" selection-end-line="142" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="155" column="23" lean-forward="false" selection-start-line="155" selection-start-column="23" selection-end-line="155" selection-end-column="23" />
         </state>
       </provider>
     </entry>

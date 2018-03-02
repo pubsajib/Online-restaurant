@@ -57,7 +57,7 @@ class CategoryController extends BaseController
             $where = ['category_id' => $_POST['category_id']];
             $data = array(
                 'category_name' => $_POST['category_name'],
-                'display_order' => $_POST['display_order'],
+                'display_order' => trim($_POST['display_order']) != '' ? trim($_POST['display_order']) : 0,
                 'is_active' => true,
             );
             $categoryModel->update($data, $where);

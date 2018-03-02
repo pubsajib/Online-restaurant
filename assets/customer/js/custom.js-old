@@ -152,3 +152,90 @@ $(document).on("click",".cust-plus-decrement",function(){
 });
 
 
+/*Offer increment/decrement*/
+
+$(document).on('click','.offer-add',function(){
+	$(this).parents('li').find('.extra-collespe-panel').toggleClass('in');
+});
+
+$(document).on("click",".offer-plus-increment",function(){
+	var itemNumber=$(this).parents(".offer-spiner").find(".increse-val").val();
+	var itemVal=$(this).parents(".spinner").find(".product_price").val();
+	var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
+	var extraPrice=$(this).parents(".modal-content").find("#extra-order-total-amount").html();
+
+	itemNumber=parseInt(itemNumber);
+	itemVal=parseInt(itemVal);
+	extraPrice=parseInt(extraPrice);
+
+	itemNumber++;
+	var itemFinalVal = parseInt(itemVal*itemNumber);
+	extraPrice=parseInt(extraPrice+itemVal);
+
+	$(this).parents(".hobtr").find(".qnt-idn").html(itemNumber);
+	$(this).parents(".hobtr").find(".increse-val").val(itemNumber);
+	$(this).parents(".row").find(".extra-price").html(itemFinalVal);
+	$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice);
+});
+
+$(document).on('click','.SkipExtra',function(){
+	$('#ExtraList').modal('show');
+	$('body').css('paddingRight','0');
+});
+
+
+$(document).on("click",".offer-plus-decrement",function(){
+	var itemNumber=$(this).parents(".offer-spiner").find(".increse-val").val();
+	var itemVal=$(this).parents(".spinner").find(".product_price").val();
+	var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
+	var extraPrice=$(this).parents(".modal-content").find("#extra-order-total-amount").html();
+
+	itemNumber=parseInt(itemNumber);
+	itemVal=parseInt(itemVal);
+	extraPrice=parseInt(extraPrice);
+
+	itemNumber--;
+
+	if(itemNumber>=1){
+		var itemFinalVal = parseInt(itemPVal-itemVal);
+		extraPrice=parseInt(extraPrice-itemVal);
+
+		$(this).parents(".hobtr").find(".qnt-idn").html(itemNumber);
+		$(this).parents(".hobtr").find(".increse-val").val(itemNumber);
+		$(this).parents(".row").find(".extra-price").html(itemFinalVal);
+		$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice);
+	}
+	else{
+		$(this).parents(".hobtr").find(".qnt-idn").html(1);
+	}
+});
+
+$(document).on('click','.extra-rmv',function(){
+	$(this).parents('.extra-collespe-panel').removeClass('in');
+});
+
+$(document).on('click','#edit-extra',function(){
+	$('#addExtra').modal('show');
+	$('body').css('paddingRight','0');
+});	
+
+$(document).on('click','#SkipOffers, .offer-close',function(){
+	$('#addExtra').modal('show');
+	$('body').css('paddingRight','0');
+});
+
+$(document).on('click','.addExtraCart',function(){
+	$('#offerList').modal('show');
+	$('body').css('paddingRight','0');
+});
+
+$('#addExtra').on('hidden.bs.modal', function (){
+   	$('body').css('paddingRight','0');
+ });
+
+//ads offer click to select
+// $(document).on('click','.offer-list>li',function(){
+// 	$(this).parent('.offer-list').children('li').removeClass('active');
+// 	$(this).addClass('active');
+// });
+//selected offer list

@@ -3924,9 +3924,10 @@ input.form-control.increse-val {
     height: 55px;
 } */
 .cart-info .table td {
-  height: 55px;
-  text-transform: lowercase;
+  height: 52px;
+  /* text-transform: lowercase; */
   font-size: 13px;
+  padding: 12px 8px;
 }
 .cart-table {
   padding: 0 8px;
@@ -4481,7 +4482,7 @@ a.clicker:after,a.clicker:before{
   font-size: 20px;
 }
 .order-history-table table>tbody>tr>td, .order-history-table table>thead>tr>th{
-  text-align: center;
+  text-align: left;
 }
 #history-total-table>tbody>tr>td{
   width: 150px;
@@ -4714,7 +4715,44 @@ a.clicker:after,a.clicker:before{
   height: 30px;
   width: 30px !important;
 }
+table>tbody>tr.extra>td {
+    height: auto !important;
+    padding: 3px 10px !important;
+}
+button.btn.btn-default.cust-plus.cust-plus-increment.add_to_cart {
+    margin-top: 2px;
+}
 /* .offer-selected-item:last-child, .extra-selected-item:last-child{
     border-bottom: 1px solid #cf9b67;
 } */
+pre.modal-description {
+    display: block;
+    padding: 3px 0;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #cf9b67;
+    border: 1px solid #cf9b67;
+    border-radius: 4px;
+    color: #fff;
+    font-family: "Open Sans";
+    margin-bottom: 0;
+    display: flex;
+    white-space: pre-line;
+}
+.selection-text{
+    padding: 3px 15px;
+    border-bottom: 1px solid #c3c3c3;
+    margin: 0 -15px;
+    font-size: 13px;
+    color: #4d4d4d;
+}
 /*Master Modal Layout END*/
+.offer-list li:hover, .bundle-list li:hover{
+  cursor: pointer;
+}
+.bundle-list > li p {
+    margin-bottom: 5px;
+}

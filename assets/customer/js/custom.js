@@ -128,17 +128,21 @@ $(document).on("click",".amont-td>i",function(){
 
 $(document).on("click",".cust-plus-increment",function(){
 	var itemNumber=$(this).parent(".spinner").children(".increse-val").val();
-	itemNumber=parseInt(itemNumber);
+	var dataId = $(this).attr('data-id');
+	itemNumber=parseFloat(itemNumber);
 
 	itemNumber++;
 	
 	$(this).parents(".custom-spinner").children(".qnt-idn").html(itemNumber);
 	$(this).parent(".spinner").children(".increse-val").val(itemNumber);
+	$(this).parents(".paenl-body").find("#item_total_"+dataId).val(itemNumber);
+	
 });
 
 $(document).on("click",".cust-plus-decrement",function(){
 	var itemNumber=$(this).parent(".spinner").children(".increse-val").val();
-	itemNumber=parseInt(itemNumber);
+	var dataId = $(this).attr('data-id');
+	itemNumber=parseFloat(itemNumber);
 	
 	itemNumber--;
 	if(itemNumber==0)
@@ -148,6 +152,7 @@ $(document).on("click",".cust-plus-decrement",function(){
 	else{
 		$(this).parents(".custom-spinner").children(".qnt-idn").html(itemNumber);
 		$(this).parent(".spinner").children(".increse-val").val(itemNumber);
+		$(this).parents(".paenl-body").find("#item_total_"+dataId).val(itemNumber);
 	}
 });
 
@@ -159,23 +164,31 @@ $(document).on('click','.offer-add',function(){
 });
 
 $(document).on("click",".offer-plus-increment",function(){
+	var data_id = $(this).attr('data-id');
 	var itemNumber=$(this).parents(".offer-spiner").find(".increse-val").val();
 	var itemVal=$(this).parents(".spinner").find(".product_price").val();
-	var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
+	var dataId = $(this).attr('data-id');
+	//var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
+	var itemPVal=$("#extra-price-hidden").val();
 	var extraPrice=$(this).parents(".modal-content").find("#extra-order-total-amount").html();
 
-	itemNumber=parseInt(itemNumber);
-	itemVal=parseInt(itemVal);
-	extraPrice=parseInt(extraPrice);
+	itemNumber=parseFloat(itemNumber);
+	itemVal=parseFloat(itemVal);
+	extraPrice=parseFloat(extraPrice);
 
 	itemNumber++;
-	var itemFinalVal = parseInt(itemVal*itemNumber);
-	extraPrice=parseInt(extraPrice+itemVal);
+
+	var itemFinalVal = parseFloat(itemVal*itemNumber);
+	extraPrice=parseFloat(extraPrice+itemVal);
 
 	$(this).parents(".hobtr").find(".qnt-idn").html(itemNumber);
 	$(this).parents(".hobtr").find(".increse-val").val(itemNumber);
-	$(this).parents(".row").find(".extra-price").html(itemFinalVal);
-	$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice);
+	$(this).parents(".row").find(".extra-price").html(itemFinalVal.toFixed('2'));
+	$("#extra-price-hidden").val(itemFinalVal.toFixed('2'));
+	$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice.toFixed(2));
+	$(this).parents(".modal-content").find("#total_extra_price").val(extraPrice.toFixed(2));
+	$("#total_extra_price").val(extraPrice.toFixed(2));
+	$(this).parents(".panel-body").find("#item_total_"+dataId).val(itemFinalVal.toFixed(2));
 });
 
 $(document).on('click','.SkipExtra',function(){
@@ -187,28 +200,36 @@ $(document).on('click','.SkipExtra',function(){
 $(document).on("click",".offer-plus-decrement",function(){
 	var itemNumber=$(this).parents(".offer-spiner").find(".increse-val").val();
 	var itemVal=$(this).parents(".spinner").find(".product_price").val();
-	var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
+	//var itemPVal=$(this).parents(".extra-collespe-panel").find(".extra-price").html();
+	var dataId = $(this).attr('data-id');
+	var itemPVal=$("#extra-price-hidden").val();
 	var extraPrice=$(this).parents(".modal-content").find("#extra-order-total-amount").html();
 
-	itemNumber=parseInt(itemNumber);
-	itemVal=parseInt(itemVal);
-	extraPrice=parseInt(extraPrice);
+	itemNumber=parseFloat(itemNumber);
+	itemVal=parseFloat(itemVal);
+	extraPrice=parseFloat(extraPrice);
 
 	itemNumber--;
 
 	if(itemNumber>=1){
-		var itemFinalVal = parseInt(itemPVal-itemVal);
-		extraPrice=parseInt(extraPrice-itemVal);
+		var itemFinalVal = (parseFloat(itemPVal)-parseFloat(itemVal));
+		extraPrice=parseFloat(extraPrice-itemVal);
 
 		$(this).parents(".hobtr").find(".qnt-idn").html(itemNumber);
 		$(this).parents(".hobtr").find(".increse-val").val(itemNumber);
-		$(this).parents(".row").find(".extra-price").html(itemFinalVal);
-		$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice);
+		$(this).parents(".row").find(".extra-price").html(itemFinalVal.toFixed('2'));
+		$("#extra-price-hidden").val(itemFinalVal.toFixed('2'));
+		$(this).parents(".modal-content").find("#extra-order-total-amount").html(extraPrice.toFixed(2));
+		$(this).parents(".modal-content").find("#total_extra_price").val(extraPrice.toFixed(2));
+		$("#total_extra_price").val(extraPrice);
+		$(this).parents(".panel-body").find("#item_total_"+dataId).val(itemFinalVal.toFixed(2));
+		console.log(itemFinalVal);
 	}
 	else{
 		$(this).parents(".hobtr").find(".qnt-idn").html(1);
 	}
 });
+
 
 $(document).on('click','.extra-rmv',function(){
 	$(this).parents('.extra-collespe-panel').removeClass('in');

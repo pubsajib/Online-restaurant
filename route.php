@@ -409,6 +409,31 @@ $route = array(
         'orderCallback',
         'get',
     ),
+    'order/check-product-offers' => array(
+        'OrderController',
+        'checkProductOffers',
+        'post',
+    ),
+    'order/get-offer-type' => array(
+        'OrderController',
+        'getOfferTypes',
+        'post',
+    ),
+    'order/get-product-bundle' => array(
+        'OrderController',
+        'getProductBundle',
+        'post',
+    ),
+    'order/get-offer-extra' => array(
+        'OrderController',
+        'getOfferExtra',
+        'post',
+    ),
+    'order/get-product-extra' => array(
+        'OrderController',
+        'getProductExtra',
+        'post',
+    ),
     'contact-us' => array(
         'CustomerController',
         'contactUs',

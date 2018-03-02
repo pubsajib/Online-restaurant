@@ -23,11 +23,14 @@ class ProductController extends BaseController
     {
         if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
 
-        $offerModel     = new Offer();
-        $productModel   = new Product();
-        $categoryModel  = new Category();
-        $variationModel = new Variation();
-        $subProductModel = new SubProduct();
+        $offerModel         = new Offer();
+        $productModel       = new Product();
+        $categoryModel      = new Category();
+        $variationModel     = new Variation();
+        $subProductModel    = new SubProduct();
+
+        $validProducts      = [];
+        $invalidProducts    = [];
 
         $data['products'] = $productModel->getProductsWithCategory();
         $joinTables = [['tableName' => 'products', 'constraintKey' => 'product_id']];
@@ -53,20 +56,23 @@ class ProductController extends BaseController
 
         // Making single array for all products and subproducts
         if ( $data['products'] || $data['sub_products'] ) {
-            if ( $data['products'] ) {
-                foreach ($data['products'] as $product) {
+            if ( $data['sub_products'] ) {
+                foreach ( $data['sub_products'] as $product ) {
+                    $invalidProducts[] = $product->product_id;
+                    $product->product_id = $product->product_id.'_'.$product->sub_product_id;
+                    $product->name = $product->product_name.'( '.$product->name.' )';
                     $data['allProducts'][] = $product;
                 }
             }
-            if ( $data['sub_products'] ) {
-                foreach ( $data['sub_products'] as $product ) {
-                    $product->product_id = $product->product_id.'_'.$product->sub_product_id;
-                    $data['allProducts'][] = $product;
+            $invalidProducts = array_unique($invalidProducts);
+            if ( $data['products'] ) {
+                foreach ($data['products'] as $product) {
+                    if (!in_array($product->product_id, $invalidProducts)) $data['allProducts'][] = $product;
                 }
             }
         }
-        $data['extraProducts'] = $this->AllExtraProductLists();
-        // echo "<pre>"; print_r($data['extraProducts']); echo "</pre>"; exit();
+        $data['extraProducts'] = $this->AllExtraProductLists($invalidProducts);
+        // echo "<pre>"; print_r($data['sub_products']); echo "</pre>"; exit();
         $this->view('admin/products', $data);
     }
 
@@ -74,30 +80,74 @@ class ProductController extends BaseController
     {
         $productId = $_GET['product_id'];
         //echo $productId; exit();
-        $productModel = new Product();
-        $data = array(
-            'product_id' => $productId,
-        );
+        $productModel           = new Product();
+        $productOfferModel      = new ProductOffer();
+        $productExtraModel      = new ProductExtra();
+        $productVariationModel  = new ProductVariation();
+        $productBundleModel     = new ProductBundle();
+
+        $data = ['product_id' => $productId];
         $product = $productModel->getWhere($data, [], 'single');
+        $activeData = ['product_id' => $productId, 'is_active'=>'Active'];
+
+        // Offers
+        $product->offers = [];
+        $product->offers = $productOfferModel->getWhere($activeData, ['offered_product_id', 'quantity']); 
+
+        // Extras
+        $extraData = '';
+        $extras = $productExtraModel->getWhere($activeData, ['extra_product_id']);
+        if ( $extras ) {
+            $counter = 0; 
+            foreach ( $extras as $extra ) {
+                $extra = explode('_', $extra->extra_product_id);
+                if ($extra) {
+                    $extraData[$counter]['product_id'] = $extra[0];
+                    if ( isset($extra[1]) ) $extraData[$counter]['sub_product_id'] = @$extra[1];
+                    else $extraData[$counter]['sub_product_id'] = '';
+                }
+                $counter++;
+            }
+        }
+        $product->extras = $extraData;
+
+        // Variations
+        $product->variations = [];
+        $variations = $productVariationModel->getWhere($data, ['variation_id']);
+        if ( $variations ) {
+            foreach ( $variations as $variation ) {
+                $product->variations[] = $variation->variation_id;
+            }
+        }
+
+        // Bundles
+        $product->bundles = [];
+        $product->bundles = $productBundleModel->getWhere($activeData, ['bundle_product_id', 'number_of_each_step', 'order_of_step']); 
+
         echo json_encode(['status'=> 200, 'message' => '', 'product' => $product]);
 
         return;
     }
 
     public function createProduct() {
-        $productModel = new Product();
-        $date = new \DateTime();
+        $productModel           = new Product();
+        $productOfferModel      = new ProductOffer();
+        $productExtraModel      = new ProductExtra();
+        $productVariationModel  = new ProductVariation();
+        $productBundleModel     = new ProductBundle();
+        $date                   = new \DateTime();
         $data = array(
             'category_id' => $_POST['category_id'],
             'name' => $_POST['name'],
             'description' => $_POST['description'],
             //'quantity' => $_POST['quantity'],
             'price' => $_POST['price'],
-            'display_order' => $_POST['display_order'],
+            'display_order' => trim($_POST['display_order']) != '' ? trim($_POST['display_order']) : 0,
             'is_active' => true/*$_POST['is_active']*/,
             'created_at' => $date->format('Y-m-d h:i:s'),
         );
-        if ( isset($_POST['isExtra']) && !empty($_POST['isExtra']) ) { $data['is_extra'] = 'True'; }
+        if ( isset($_POST['isExtra']) && trim($_POST['isExtra']) == 'True' ) $data['is_extra'] = $_POST['isExtra'];
+        else { $data['is_extra'] = "False"; }
         if (!empty($_FILES['image_name']['name'])) {
             $image = $_FILES['image_name'];
             $targetDir = BASE_DIR.'/assets/img/products/';
@@ -113,9 +163,69 @@ class ProductController extends BaseController
 
         if (isset($_POST['product_id'])) {
             // Update existing product
+            $productId = $_POST['product_id'];
             $where = ['product_id' => $_POST['product_id']];
             $productModel->update($data, $where);
             $data['products'] = $productModel->getProductsWithCategory();
+            $deactiveData = ['is_active'=>'Inactive'];
+
+            // Update offers data
+            $productOfferModel->update($deactiveData, $where);
+            if ( isset($_POST['offers']) && !empty($_POST['offers']) ) {
+                $offersChecked = $_POST['offersChecked'];
+                $offersQuantity = $_POST['offersQuantity'];
+                foreach ($offersChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductOffer = [];
+                        $ProductOffer['product_id'] = $productId;
+                        $ProductOffer['offered_product_id'] = $value;
+                        $ProductOffer['quantity'] = $offersQuantity[$key];
+                        $productOfferModel->save($ProductOffer);
+                    }
+                }
+            }
+
+            // Update extra data
+            $productExtraModel->update($deactiveData, $where);
+            if ( isset($_POST['extras']) && !empty($_POST['extras']) ) {
+                $productExtraModel = new ProductExtra();
+                foreach ($_POST['extras'] as $value) {
+                    $ProductOffer = [];
+                    $ProductOffer['product_id'] = $productId;
+                    $ProductOffer['extra_product_id'] = $value;
+                    $productExtraModel->save($ProductOffer);
+                }
+            }
+
+            // Update variations data
+            $deleteWhere = ['product_id' => $productId];
+            $productVariationModel->delete($deleteWhere);
+            if ( isset($_POST['variations']) && !empty($_POST['variations']) ) {
+                foreach ($_POST['variations'] as $value) {   
+                    $ProductVariations = [];
+                    $ProductVariations['product_id'] = $productId;
+                    $ProductVariations['variation_id'] = $value;
+                    $productVariationModel->save($ProductVariations);
+                }
+            }
+
+            // Update bundles data
+            $productBundleModel->update($deactiveData, $where);
+            if ( isset($_POST['bundles']) && !empty($_POST['bundles']) ) {
+                $bundlesChecked         = $_POST['bundlesChecked'];
+                $bundleOrderOfStep      = $_POST['bundleOrderOfStep'];
+                $bundleNumberOfEachStep = $_POST['bundleNumberOfEachStep'];
+                foreach ($bundlesChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductBundle = [];
+                        $ProductBundle['product_id'] = $productId;
+                        $ProductBundle['bundle_product_id'] = $value;
+                        $ProductBundle['number_of_each_step'] = $bundleNumberOfEachStep[$key];
+                        $ProductBundle['order_of_step'] = $bundleOrderOfStep[$key];
+                        $productBundleModel->save($ProductBundle);
+                    }
+                }
+            }
 
             $return = ['status'=> 200, 'message' => 'Successfully Updated!', 'products' => $data['products']];
         } else {
@@ -124,7 +234,6 @@ class ProductController extends BaseController
             $data['productID'] = (int) $productModel->getLastInsertedId();
             // Insert offers data
             if ( isset($_POST['offers']) && !empty($_POST['offers']) ) {
-                $productOfferModel = new ProductOffer();
                 $offersChecked = $_POST['offersChecked'];
                 $offersQuantity = $_POST['offersQuantity'];
                 foreach ($offersChecked as $key => $value) {
@@ -132,7 +241,7 @@ class ProductController extends BaseController
                         $ProductOffer = [];
                         $ProductOffer['product_id'] = $data['productID'];
                         $ProductOffer['offered_product_id'] = $value;
-                        $ProductOffer['quantity'] = $offersQuantity[$key];
+                        $ProductOffer['quantity'] = $offersQuantity;
                         $productOfferModel->save($ProductOffer);
                     }
                 }
@@ -140,7 +249,6 @@ class ProductController extends BaseController
 
             // Insert extra data
             if ( isset($_POST['extras']) && !empty($_POST['extras']) ) {
-                $productExtraModel = new ProductExtra();
                 foreach ($_POST['extras'] as $value) {
                     $ProductOffer = [];
                     $ProductOffer['product_id'] = $data['productID'];
@@ -151,7 +259,6 @@ class ProductController extends BaseController
 
             // Insert variations data
             if ( isset($_POST['variations']) && !empty($_POST['variations']) ) {
-                $productVariationModel = new ProductVariation();
                 foreach ($_POST['variations'] as $value) {   
                     $ProductVariations = [];
                     $ProductVariations['product_id'] = $data['productID'];
@@ -162,7 +269,6 @@ class ProductController extends BaseController
 
             // Insert bundles data
             if ( isset($_POST['bundles']) && !empty($_POST['bundles']) ) {
-                $productBundleModel     = new ProductBundle();
                 $bundlesChecked         = $_POST['bundlesChecked'];
                 $bundleOrderOfStep      = $_POST['bundleOrderOfStep'];
                 $bundleNumberOfEachStep = $_POST['bundleNumberOfEachStep'];
@@ -171,7 +277,7 @@ class ProductController extends BaseController
                         $ProductBundle = [];
                         $ProductBundle['product_id'] = $data['productID'];
                         $ProductBundle['bundle_product_id'] = $value;
-                        $ProductBundle['number_of_each_step'] = $bundleOrderOfStep[$key];
+                        $ProductBundle['number_of_each_step'] = $bundleNumberOfEachStep[$key];
                         $ProductBundle['order_of_step'] = $bundleOrderOfStep[$key];
                         $productBundleModel->save($ProductBundle);
                     }
@@ -370,26 +476,52 @@ class ProductController extends BaseController
         $variationModel = new Variation();
         $productVariationModel  = new ProductVariation();
 
+        $validProducts      = [];
+        $invalidProducts    = [];
+
         $data['products'] = $productModel->getProductsWithCategory();
         $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
         $data['variations'] = $variationModel->getWhere(['is_active' => 'true']);
         
         $joinTables = [['tableName' => 'variations', 'constraintKey' => 'variation_id']];
         foreach ($data['sub_products'] as $subProduct) {
-            $where = ['product_id'=>$subProduct->sub_product_id];
+            $where = ['product_id'=>$subProduct->product_id.'_'.$subProduct->sub_product_id];
             $variations = $productVariationModel->getJoinedData($joinTables, $where);
             $variationNames = '';
             $variationIds = [];
             if ( $variations ) {
+                $counter = 0;
                 foreach ($variations as $variation) {
-                    $variationIds[] = $variation->variation_id;
+                    $variationIds[$counter]['variation_id'] = $variation->variation_id;
+                    $variationIds[$counter]['variation_name'] = $variation->variation_name;
                     $variationNames .= $variation->variation_name .', ';
+                    $counter++;
                 }
             }
             $subProduct->variations = $variationIds;
             $subProduct->variationNames = rtrim( $variationNames, ', ');
         }
 
+        // Making single array for all products and subproducts
+        if ( $data['products'] || $data['sub_products'] ) {
+            if ( $data['sub_products'] ) {
+                foreach ( $data['sub_products'] as $product ) {
+                    $invalidProducts[] = $product->product_id;
+                    $product->product_id = $product->product_id.'_'.$product->sub_product_id;
+                    $product->subProduct_name = $product->name;
+                    $product->name = $product->product_name.'( '.$product->name.' )';
+                    $data['allProducts'][] = $product;
+                }
+            }
+            $invalidProducts = array_unique($invalidProducts);
+            if ( $data['products'] ) {
+                foreach ($data['products'] as $product) {
+                    if (!in_array($product->product_id, $invalidProducts)) $data['allProducts'][] = $product;
+                }
+            }
+        }
+        $data['extraProducts'] = $this->AllExtraProductLists($invalidProducts);
+        // echo "<pre>". print_r($data['allProducts'], true) ."</pre>"; exit();
         $this->view('admin/sub_products', $data);
     }
 
@@ -397,51 +529,148 @@ class ProductController extends BaseController
         $productId = $_GET['product_id'];
         //echo $productId; exit();
         $subProductModel = new SubProduct();
-        $data = array(
-            'sub_product_id' => $productId,
-        );
+        $productVariationModel  = new ProductVariation();
+        $productOfferModel      = new ProductOffer();
+        $productExtraModel      = new ProductExtra();
+        $productBundleModel     = new ProductBundle();
+        $data = ['sub_product_id' => $productId];
         $subProduct = $subProductModel->getWhere($data, [], 'single');
+        $activeData = ['product_id' => $subProduct->product_id.'_'.$subProduct->sub_product_id, 'is_active'=>'Active'];
+
+        $variationNames = '';
+        $variationIds = [];
+        $joinTables = [['tableName' => 'variations', 'constraintKey' => 'variation_id']];
+        $where = ['product_id'=>$subProduct->product_id.'_'.$subProduct->sub_product_id];
+        $variations = $productVariationModel->getJoinedData($joinTables, $where);
+        if ( $variations ) {
+            foreach ($variations as $variation) {
+                $variationIds[] = $variation->variation_id;
+                $variationNames .= $variation->variation_name .', ';
+            }
+        }
+        $subProduct->variations = $variationIds;
+        $subProduct->variationNames = rtrim( $variationNames, ', ');
+
+
+        // Offers
+        $subProduct->offers = [];
+        $subProduct->offers = $productOfferModel->getWhere($activeData, ['offered_product_id', 'quantity']);
+
+        // Extras
+        $extraData = '';
+        $extras = $productExtraModel->getWhere($activeData, ['extra_product_id']);
+        if ( $extras ) {
+            $counter = 0;
+            foreach ( $extras as $extra ) {
+                $extra = explode('_', $extra->extra_product_id);
+                if ($extra) {
+                    $extraData[$counter]['product_id'] = $extra[0];
+                    if ( isset($extra[1]) ) $extraData[$counter]['sub_product_id'] = @$extra[1];
+                    else $extraData[$counter]['sub_product_id'] = '';
+                }
+                $counter++;
+            }
+        }
+        $subProduct->extras = $extraData;
+
+        // Bundles
+        $subProduct->bundles = [];
+        $subProduct->bundles = $productBundleModel->getWhere($activeData, ['bundle_product_id', 'number_of_each_step', 'order_of_step']);
+
+
+
+        //echo "<pre>"; print_r($subProduct); echo "</pre>"; die();
+
         echo json_encode(['status'=> 200, 'message' => '', 'product' => $subProduct]);
 
         return;
     }
 
-    public function createSubProduct()
-    {
+    public function createSubProduct() {
         $subProductModel        = new SubProduct();
         $variationModel         = new Variation();
+        $productOfferModel      = new ProductOffer();
+        $productExtraModel      = new ProductExtra();
+        $productBundleModel     = new ProductBundle();
         $productVariationModel  = new ProductVariation();
         $date                   = new \DateTime();
 
+        $product_id = isset($_POST['product_id']) && !empty(trim($_POST['product_id']))? $_POST['product_id']: 1;
         $data = array(
             'product_id' => $_POST['product_id'],
             'name' => $_POST['name'],
             //'description' => $_POST['description'],
             //'quantity' => $_POST['quantity'],
             'price' => $_POST['price'],
-            'display_order' => $_POST['display_order'],
+            'display_order' => trim($_POST['display_order']) != '' ? trim($_POST['display_order']) : 0,
             'created_at' => $date->format('Y-m-d h:i:s'),
         );
-        if ( isset($_POST['isExtra']) && !empty($_POST['isExtra']) ) { $data['is_extra'] = 'True'; }
+        if ( isset($_POST['isExtra']) && trim($_POST['isExtra']) == 'True' ) { $data['is_extra'] = $_POST['isExtra']; }
+        else { $data['is_extra'] = "False"; }
+        
         if (isset($_POST['sub_product_id'])) {
+            //echo "<pre>"; print_r($data); echo "</pre>"; exit();
             $subProductId = $_POST['sub_product_id'];
             $where = ['sub_product_id' => $_POST['sub_product_id']];
             $subProductModel->update($data, $where);
+            $deactiveData = ['is_active'=>'Inactive'];
 
+            $customWhere = ['product_id' => $product_id.'_'.$subProductId];
+            $productVariationModel->delete($customWhere);
             // Update variations data
-            if ( isset($_POST['variations']) ) {
-                $newNariations = $_POST['variations'];
-                $where = ['product_id'=>$subProductId];
-                $productVariationModel->deleteData($where);
-                
-                // if ( !empty($newNariations) ) {
-                //     foreach ($newNariations as $value) {   
-                //         $ProductVariations = [];
-                //         $ProductVariations['product_id'] = $data['subProductID'];
-                //         $ProductVariations['variation_id'] = $value;
-                //         $productVariationModel->update($ProductVariations, $where);
-                //     }
-                // }
+            if ( isset($_POST['variations']) && !empty($_POST['variations']) ) {
+                foreach ($_POST['variations'] as $value) {   
+                    $ProductVariations = [];
+                    $ProductVariations['product_id'] = $product_id.'_'.$subProductId;
+                    $ProductVariations['variation_id'] = $value;
+                    $productVariationModel->save($ProductVariations);
+                }
+            }
+
+            // Update offers data
+            $productOfferModel->update($deactiveData, $customWhere);
+            if ( isset($_POST['offers']) && !empty($_POST['offers']) ) {
+                $offersChecked = $_POST['offersChecked'];
+                $offersQuantity = $_POST['offersQuantity'];
+                foreach ($offersChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductOffer = [];
+                        $ProductOffer['product_id'] = $product_id.'_'.$subProductId;
+                        $ProductOffer['offered_product_id'] = $value;
+                        $ProductOffer['quantity'] = $offersQuantity;
+                        $productOfferModel->save($ProductOffer);
+                    }
+                }
+            }
+
+            // Update extra data
+            $productExtraModel->update($deactiveData, $customWhere);
+            if ( isset($_POST['extras']) && !empty($_POST['extras']) ) {
+                $productExtraModel = new ProductExtra();
+                foreach ($_POST['extras'] as $value) {
+                    $ProductOffer = [];
+                    $ProductOffer['product_id'] = $product_id.'_'.$subProductId;
+                    $ProductOffer['extra_product_id'] = $value;
+                    $productExtraModel->save($ProductOffer);
+                }
+            }
+
+            // Update bundles data
+            $productBundleModel->update($deactiveData, $customWhere);
+            if ( isset($_POST['bundles']) && !empty($_POST['bundles']) ) {
+                $bundlesChecked         = $_POST['bundlesChecked'];
+                $bundleOrderOfStep      = $_POST['bundleOrderOfStep'];
+                $bundleNumberOfEachStep = $_POST['bundleNumberOfEachStep'];
+                foreach ($bundlesChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductBundle = [];
+                        $ProductBundle['product_id'] = $product_id.'_'.$subProductId;
+                        $ProductBundle['bundle_product_id'] = $value;
+                        $ProductBundle['number_of_each_step'] = $bundleNumberOfEachStep[$key];
+                        $ProductBundle['order_of_step'] = $bundleOrderOfStep[$key];
+                        $productBundleModel->save($ProductBundle);
+                    }
+                }
             }
 
             // Return data for front end
@@ -466,20 +695,80 @@ class ProductController extends BaseController
             $return = ['status'=> 200, 'message' => 'Successfully Updated!', 'products' => $data['sub_products']];
         } else {
             $subProductModel->save($data);
-            $data['subProductID'] = (int) $subProductModel->getLastInsertedId();
+            $subProductId = (int) $subProductModel->getLastInsertedId();
+            $productID_subProductID = $product_id.'_'.$subProductId;
+
+            // Insert offers data
+            if ( isset($_POST['offers']) && !empty($_POST['offers']) ) {
+                $offersChecked = $_POST['offersChecked'];
+                $offersQuantity = $_POST['offersQuantity'];
+                foreach ($offersChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductOffer = [];
+                        $ProductOffer['product_id'] = $productID_subProductID;
+                        $ProductOffer['offered_product_id'] = $value;
+                        $ProductOffer['quantity'] = $offersQuantity;
+                        $productOfferModel->save($ProductOffer);
+                    }
+                }
+            }
+
+            // Insert extra data
+            if ( isset($_POST['extras']) && !empty($_POST['extras']) ) {
+                foreach ($_POST['extras'] as $value) {
+                    $ProductOffer = [];
+                    $ProductOffer['product_id'] = $productID_subProductID;
+                    $ProductOffer['extra_product_id'] = $value;
+                    $productExtraModel->save($ProductOffer);
+                }
+            }
 
             // Insert variations data
             if ( isset($_POST['variations']) && !empty($_POST['variations']) ) {
-                $productVariationModel = new ProductVariation();
                 foreach ($_POST['variations'] as $value) {   
                     $ProductVariations = [];
-                    $ProductVariations['product_id'] = $data['subProductID'];
+                    $ProductVariations['product_id'] = $productID_subProductID;
                     $ProductVariations['variation_id'] = $value;
                     $productVariationModel->save($ProductVariations);
                 }
             }
 
+            // Insert bundles data
+            if ( isset($_POST['bundles']) && !empty($_POST['bundles']) ) {
+                $bundlesChecked         = $_POST['bundlesChecked'];
+                $bundleOrderOfStep      = $_POST['bundleOrderOfStep'];
+                $bundleNumberOfEachStep = $_POST['bundleNumberOfEachStep'];
+                foreach ($bundlesChecked as $key => $value) {
+                    if ( $value != 0 ) {
+                        $ProductBundle = [];
+                        $ProductBundle['product_id'] = $productID_subProductID;
+                        $ProductBundle['bundle_product_id'] = $value;
+                        $ProductBundle['number_of_each_step'] = $bundleNumberOfEachStep[$key];
+                        $ProductBundle['order_of_step'] = $bundleOrderOfStep[$key];
+                        $productBundleModel->save($ProductBundle);
+                    }
+                }
+            }
+
+            // Return data for front end
+            $data = [];
             $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
+            $data['variations'] = $variationModel->getWhere(['is_active' => 'true']);
+            $joinTables = [['tableName' => 'variations', 'constraintKey' => 'variation_id']];
+            foreach ($data['sub_products'] as $subProduct) {
+                $where = ['product_id'=>$subProduct->sub_product_id];
+                $variations = $productVariationModel->getJoinedData($joinTables, $where);
+                $variationNames = '';
+                $variationIds = [];
+                if ( $variations ) {
+                    foreach ($variations as $variation) {
+                        $variationIds[] = $variation->variation_id;
+                        $variationNames .= $variation->variation_name .', ';
+                    }
+                }
+                $subProduct->variations = $variationIds;
+                $subProduct->variationNames = rtrim( $variationNames, ', ');
+            }
             $return = ['status'=> 200, 'message' => 'Successfully Created!', 'products' => $data['sub_products']];
         }
 
@@ -508,46 +797,47 @@ class ProductController extends BaseController
 
     public function productOffers()
     {
-        $productModel = new Product();
+        $offer_array = $_POST['offer_array'];
         if ($_POST['productId']) {
             $productOfferModel = new ProductOffer();
             $offers = $productOfferModel->getProductRealtedOffers($_POST['productId']);
+            $MaxOffer = $productOfferModel->getRaw('select max(quantity) as quantity from product_offer where product_offer.product_id = "'.$_POST['productId'].'" AND is_active = "Active"');
             if (!$offers) { echo 404; exit(); }
             // $data = ['product_id' => 5];
             // $product = $productModel->getWhere($data, [], 'single');
             // echo json_encode($product);
             $totalPrice = 0;
             $html = '';
-            $html .= '<div class="all-offer-list allOfferList">
-                        <div class="row offer-list-title">
-                            <div class="col-sm-6">
-                                <p><strong>Select option</strong></p>
-                            </div>    
-                            <div class="col-sm-6">
-                                <p></p>
-                            </div>    
-                        </div>
-                        
-                        <div class="row">
-                            <div class="">
-                                <ul class="offer-list">';
             foreach ($offers as $key => $offer) {
-                $data = ['product_id' => $offer->offered_product_id];
-                $product = $productModel->getWhere($data, [], 'single');
-                $totalPrice += $product->price;
-                $html .= '<li class="offers add" id="'.$product->product_id.'" class="offeredProductContainer"><div class="row">';
-                $html .= '<div class="col-sm-7 col-xs-12"> <p><strong>'. $product->name .'</strong></p> </div>';
-                // $html .= '<div class="col-sm-5 col-xs-12"> <p class="offer-list-des">Ignored by shahin vai 21071108.</p> </div>';
-                $html .= '</div> </li>';
+                $offer_products = $offer->offered_product_id;
+                $op_explode = explode('_',$offer_products);
+                if(count($op_explode)==1){
+                    $productModel = new Product();
+                    $data = ['product_id' => $op_explode[0]];
+                    $product = $productModel->getWhere($data, [], 'single');
+                    $totalPrice += $product->price;
+                    $html .= '<li class="offers add" id="'.$product->product_id.'" class="offeredProductContainer"><div class="row">';
+                    $html .= '<div class="col-sm-7 col-xs-12"> <p><strong>'. $product->name .'</strong></p> </div>';
+                    // $html .= '<div class="col-sm-5 col-xs-12"> <p class="offer-list-des">Ignored by shahin vai 21071108.</p> </div>';
+                    $html .= '</div> </li>';
+                }
+                else{
+                    $productModel = new Product();
+                    $subProductModel = new SubProduct();
+                    $productData = ['product_id' => $op_explode[0]];
+                    $product = $productModel->getWhere($productData, [], 'single');
+                    $subProductData = ['sub_product_id' => $op_explode[1]];
+                    $subProduct = $subProductModel->getWhere($subProductData, [], 'single');
+                    $totalPrice += $product->price;
+                    $html .= '<li class="offers add" id="'.$subProduct->product_id.'_'.$subProduct->sub_product_id.'" class="offeredProductContainer"><div class="row">';
+                    $html .= '<div class="col-sm-7 col-xs-12"> <p><strong>'. $product->name.'('. $subProduct->name .')</strong></p> </div>';
+                    // $html .= '<div class="col-sm-5 col-xs-12"> <p class="offer-list-des">Ignored by shahin vai 21071108.</p> </div>';
+                    $html .= '</div> </li>';
+                }
             }
-
-            $html .= '</ul>
-                                </div>
-                            </div>
-                        </div>';
             //include 'http://localhost/online_restaurant/view/customer/productContentModal.php';
-            echo $html;
-            // echo json_encode($offers[0]);
+            //echo ['max_offer'=>$MaxOffer[0]->quantity,'html'=>$html];
+            echo json_encode(['max_offer'=>$MaxOffer[0]->quantity,'html'=>$html]);
         } else{
             echo 404;
         }
@@ -558,14 +848,20 @@ class ProductController extends BaseController
         echo "productExtras";
         exit();
     }
-    public function AllExtraProductLists()
+    public function AllExtraProductLists($invalidProducts=[])
     {
         if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
+
         $data[] = [];
         $productModel = new Product();
         $subProductModel = new SubProduct();
         $categoryModel = new Category();
-        $data = $productModel->getWhere(['is_extra'=>'True']);
+        if ($invalidProducts) {
+            $sql = "SELECT * FROM `products` WHERE `is_extra` = 'True' AND `product_id` NOT IN (". implode(',', $invalidProducts) .")";
+            $data = $productModel->getRaw($sql);
+        } else {
+            $data = $productModel->getWhere(['is_extra'=>'True']);  
+        }
         $sub_products = $subProductModel->getWhere(['is_extra'=>'True']);
         if ( $sub_products ) {
             foreach ( $sub_products as $product ) {
@@ -574,17 +870,6 @@ class ProductController extends BaseController
             }
         }
         // echo "<pre>"; print_r($data); echo "</pre>"; exit();
-        return $data;
-    }
-    public function AllProductLists2()
-    {
-        if (!$this->isAdminLoggedIn()) { $this->redirect('admin/login'); }
-
-        $productModel = new Product();
-        $subProductModel = new SubProduct();
-        $categoryModel = new Category();
-        $data['products'] = $productModel->getProductsWithCategory();
-        $data['sub_products'] = $subProductModel->getSubProductsWithProduct();
         return $data;
     }
 }

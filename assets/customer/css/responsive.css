@@ -719,6 +719,9 @@ Primary use:  Egprojets
     #contact-detail {
     margin-top: 110px;
   }
+  .extraOffer .modal-body {
+    max-height: 54vh;
+  }
 }
 
 /* Wide Mobile Layout*/
@@ -750,6 +753,9 @@ Primary use:  Egprojets
   }
   #contact-detail {
     margin-top: 110px;
+  }
+  .extraOffer .modal-body {
+    max-height: 54vh;
   }
   
 }
@@ -785,6 +791,9 @@ Primary use:  Egprojets
   #contact-detail {
     margin-top: 110px;
   }
+  .extraOffer .modal-body {
+    max-height: 54vh;
+  }
   
 }
 
@@ -817,5 +826,8 @@ Primary use:  Egprojets
   .block-btn-xs{
     width: 100%;
     margin-bottom: 15px;
+  }
+  .extraOffer .modal-body {
+    max-height: 54vh;
   }
 }

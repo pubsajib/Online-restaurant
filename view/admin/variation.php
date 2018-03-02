@@ -64,7 +64,7 @@
 									<thead>
 										<tr>
 											<th width="50px" class="text-center">SL.</th>
-											<th>Variation Name</th>
+											<th>Type Name</th>
 											<th>Display Order</th>
 											<th class="text-center">Action</th>
 										</tr>
@@ -127,14 +127,14 @@
     <!-- /#wrapper -->
 
 
-<!--	Variation edit modal-->
+	<!--	Variation edit modal-->
     <!-- Modal -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Edit Variation</h4>
+                    <h4 class="modal-title" id="myModalLabel">Edit Type</h4>
                 </div>
 
 				<!--warning-->
@@ -154,7 +154,7 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-xs-12">
                                         <div class="form-group">
-											<label>Variation Name</label>
+											<label>Type Name</label>
                                             <input name="variation_name[]" type="text" class="form-control" id="">
                                         </div>
                                     </div>
@@ -178,7 +178,7 @@
 			var html='<li>';
 				html+='<div class="dynamic-input-group">';
 				html+='<div class="input-group margin-top-20">';
-				html+='<input type="text" id="" required name="variation_name[]" class="form-control search-input" placeholder="Enter Variation Name" style="width:60%">';
+				html+='<input type="text" id="" required name="variation_name[]" class="form-control search-input" placeholder="Enter Type Name" style="width:60%">';
 				html+='<input type="number" id="" required="" name="display_order[]" class="form-control search-input" placeholder="Display Order" style="width: 35%;margin-left: 13px;">';
 				html+='<span class="input-group-btn">';
 				html+='<button class="btn btn-primary search-input search-input-btn add-url" id="" type="button"><i class="icon-plus icons"></i></button>';
@@ -218,19 +218,22 @@
 				var btn = $(this);
 
 				var validate = '';
+				var validateName = '';
+				var validateOrder = '';
 				var names = $("#form_create_variation input[name='variation_name\\[\\]']").map(function(){return $(this).val();}).get();
-				var display_orders = $("#form_create_variation input[name='display_order\\[\\]']").map(function(){return $(this).val();}).get();
+				// var display_orders = $("#form_create_variation input[name='display_order\\[\\]']").map(function(){return $(this).val();}).get();
 				//console.log(names);return;
 				$.each(names, function (key, name) {
 					if (name.trim('') == '') {
-						validate = 'Variation Name is required';
+						validateName = 'Type Name is required';
 					}
 				});
-				$.each(display_orders, function (key, display_order) {
-					if (display_order.trim('') == '') {
-						validate += '<br>Display order is required';
-					}
-				});
+				// $.each(display_orders, function (key, display_order) {
+				// 	if (display_order.trim('') == '') { validateOrder = '<br><br>Display order is required'; }
+				// });
+
+				if (validateName != '') { validate += validateName; }
+				if (validateOrder != '') { validate += validateOrder; }
 
 
 				if (validate != '') {
@@ -294,7 +297,7 @@
 				var name = $('#form_edit_variation input[name="variation_name[]"]').val();
 
 				if (name.trim('') == '') {
-					validate += 'Variation name is required';
+					validate += '<br>Type name is required';
 				}
 
 				/*if (image == '') {
@@ -359,11 +362,9 @@
 			var diaplay_order = $('#display_order_'+counter).val();
 
 			if (name.trim('') == '') {
-				validate += 'Variation name is required';
+				validate += '<br>Type name is required';
 			}
-			if (diaplay_order.trim('') == '') {
-				validate += 'Display Order is required';
-			}
+			// if (diaplay_order.trim('') == '') { validate += '<br>Display Order is required'; }
 
 			if (validate != '') {
 				$('.alert-success').hide();
@@ -408,6 +409,7 @@
 						setTimeout(function () {
 							$('.alert-success').hide();
 							$('#editModal').modal('hide');
+							window.location.href="<?php echo BASE_URL?>/admin/variation";
 						}, 3000);
 					} else {
 						$('.alert-success').hide();
@@ -445,7 +447,7 @@
 		function deleteVariation(variationId) {
 			swal({
 					title: "",
-					text: "Are you sure you want to delete the variation?",
+					text: "Are you sure you want to delete the type?",
 					//type: "warning",
 					showCancelButton: true,
 					confirmButtonColor: "#DD6B55",
@@ -470,7 +472,7 @@
 									$('.alert-success').html(data.message);
 									setTimeout(function () {
 										$('.alert-success').hide();
-										window.location.href="<?php echo BASE_URL?>/admin/variation";
+										location.reload();
 									}, 2000);
 								} else {
 									$('.alert-success').hide();

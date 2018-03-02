@@ -25,6 +25,10 @@ use App\model\Settings;
 use App\model\Contact;
 use App\model\Page;
 use App\model\Discount;
+use App\model\OrderOfferDetail;
+use App\model\OrderProductVariation;
+use App\model\OrderExtraDetail;
+use App\model\OrderBundleDetail;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 use PayPal\Api\Amount;
@@ -696,6 +700,25 @@ class CustomerController extends BaseController
             $items = '';
             foreach($cart->products as $crt){
                 $items .= $crt->quantity.";".$crt->name.";".number_format($crt->price, 2, '.', '').";";
+
+                foreach($crt->all_extra_items as $offers){
+                    if($offers->type=='extra'){
+                        $items .= $offers->quantity.";  +".$offers->name.";".number_format($offers->price*$offers->quantity, 2, '.', '').";";
+                    }
+                    else{
+                        $items .= "1;  +".$offers->name."; ;";
+                    }
+                }
+
+                /*foreach($crt->product_offers as $offers){
+                    $items .= "1;  +".$offers->name."; ;";
+                }
+                foreach($crt->product_extras as $extras){
+                    $items .= $extras->quantity.";  +".$extras->name.";".number_format($extras->price, 2, '.', '').";";
+                }
+                foreach($crt->product_bundles as $bundle){
+                    $items .= "1;  +".$bundle->name."; ;";
+                }*/
             }
 
             $items .= "1;Card payment charge;".number_format($_SESSION['card_payment_charge'], 2, '.', '').";";
@@ -729,8 +752,8 @@ class CustomerController extends BaseController
             $data['reason'] = '';
             $count = 3;
 
-
-            /*do {
+            // ======================================
+            do {
                 sleep(3);
 
                 $orderPrint = $orderModel->getWhere(['order_id' => $orderId], [], 'single');
@@ -760,9 +783,10 @@ class CustomerController extends BaseController
                 }
                 $count = $count+3;
             }
-            while ($status == 2);*/
+            while ($status == 2);
 
-            $data['status'] = 200;
+            // $data['status'] = 200;
+            // =====================================
 
 
             /**
@@ -933,6 +957,56 @@ class CustomerController extends BaseController
                     'price' => $product->price,
                 );
                 $orderDetailsModel->save($order_details);
+                $lastOrderDetailId = $orderDetailsModel->getLastInsertedId();
+
+
+                $product_offers = $product->product_offers;
+                $product_variations = $product->product_variations;
+                $product_extras = $product->product_extras;
+                $product_bundles = $product->product_bundles;
+
+                $orderOfferDetailModel = new OrderOfferDetail();
+                $orderProductVariationModel = new OrderProductVariation();
+                $orderExtraDetailModel = new OrderExtraDetail();
+                $OrderBundleDetailModel = new OrderBundleDetail();
+
+                foreach($product_offers as $offer){
+                    $offer_details = array(
+                        'orders_details_id' => $lastOrderDetailId,
+                        'quantity_of_accepted_offer' => 1,
+                        'product_id' => $offer
+                    );
+                    $orderOfferDetailModel->save($offer_details);
+                }
+
+                foreach($product_variations as $variation){
+                    $variation_details = array(
+                        'orders_details_id' => $lastOrderDetailId,
+                        'variation_id' => $variation->variation_id,
+                        'product_id' => $variation->product_id
+                    );
+                    $orderProductVariationModel->save($variation_details);
+                }
+
+                foreach($product_extras as $extra){
+                    $extra_details = array(
+                        'orders_details_id' => $lastOrderDetailId,
+                        'quantity_of_extra_product' => $extra->quantity,
+                        'extra_product_price' => $extra->price,
+                        'product_id' => $extra->id
+                    );
+                    $orderExtraDetailModel->save($extra_details);
+                }
+
+                foreach($product_bundles as $bundle){
+                    $bundle_details = array(
+                        'orders_details_id' => $lastOrderDetailId,
+                        'bundle_product_id' => $bundle->product_id,
+                        'bundle_product_price' => 0,
+                        'bundle_product_quantity' => 1
+                    );
+                    $OrderBundleDetailModel->save($bundle_details);
+                }
             }
 
             /*if ($returnData['status'] == 200) {
@@ -998,7 +1072,7 @@ class CustomerController extends BaseController
             if($send_order_confirmation_email == 'success'){
                 $_SESSION['success'] = "Order confirmation email has been sent to your email address";
             }else{
-                $_SESSION['error'] = "Email not sent";
+                $_SESSION['error'] = "Confirmation email not sent";
             }
 
         } else {
@@ -1154,8 +1228,9 @@ class CustomerController extends BaseController
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <!--second table -->
+                    </div>";
+                    //$message .= print_r($cart, true);
+                    $message .= "<!--second table -->
                     <div style=\"\">
                         <table style=\"border-collapse: collapse;width: 100%;border: 1px solid black;padding: 6px 12px;\">
                             <tr>
@@ -1224,7 +1299,7 @@ class CustomerController extends BaseController
                 </div>
             </body>
         ";
-
+        // $to = 'sajibofficialemail@gmail.com';
         $send_order_confirmation_email = $this->sendEmail($from, $to, $subject, $message);
 
         return $send_order_confirmation_email;
@@ -1622,7 +1697,7 @@ class CustomerController extends BaseController
          
                     <div class=\"container\" style=\"padding-right: 15px; padding-left: 15px; margin-right: auto; margin-left: auto; width:80%;\">
                         <div class=\"effect02\" style=\"background: rgb(0, 0, 0) none repeat scroll 0% 0%; margin-top: 30px; width: 100%; padding: 1px 0px;\">
-                            <img src=\"$base_url/assets/customer/img/logo.kpg.png\" alt=\"logo\" style=\"width: 250px; margin: 30px auto; float: none; display: block;\">
+                            <img src=\"$base_url/assets/customer/img/logo.png\" alt=\"logo\" style=\"width: 250px; margin: 30px auto; float: none; display: block;\">
                         </div>
                         
                         <div style=\"margin-right: -15px;margin-left: -15px;\">
@@ -1647,7 +1722,7 @@ class CustomerController extends BaseController
                                 <hr style=\"margin: 50px 0px; border-top: 0px solid rgb(252, 252, 252);\" />
                                 
                                 <div style=\"text-align: center; margin-bottom: 25px;\">
-                                    <img style=\"width: 100px; margin:0 auto; display: block;\" src=\"$base_url/assets/customer/img/footer-logo.jpg\">
+                                    <img style=\"width: 100px; margin:0 auto; display: block;\" src=\"$base_url/assets/customer/img/footer-logo.png\">
                                     <small style=\"\">2017 © Food Lover. ALL Rights Reserved.</small>
                                 </div>
                 
